@@ -45,35 +45,57 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 40px auto 60px;
       padding: 0 20px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    h1 {
-      text-align: center;
-      color: #60a5fa;
-      margin-bottom: 30px;
-      font-size: 2.8rem;
-    }
-
-    ol {
-      padding-left: 20px;
-      font-size: 1.1rem;
-    }
-
-    ol li {
-      margin-bottom: 18px;
+    .balloon {
       background-color: #1e3a8a;
-      padding: 15px 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
-      transition: background-color 0.3s;
+      border-radius: 18px;
+      padding: 30px 25px;
+      box-shadow: 0 0 15px rgba(96, 165, 250, 0.4);
+      width: 450px;
+      min-width: 280px;
+      color: #e0e7ff;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
     }
 
-    ol li:hover {
-      background-color: #3b82f6;
-      color: #fff;
+    .balloon h2 {
+      color: #60a5fa;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #60a5fa;
+      padding-bottom: 8px;
+    }
+
+    .balloon ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .balloon ul li {
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .alert-box {
+      background-color: #b91c1c;
+      color: #fee2e2;
+      border-radius: 15px;
+      max-width: 900px;
+      margin: 30px auto 60px;
+      padding: 25px 30px;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(185, 28, 28, 0.7);
+      text-align: center;
+      font-size: 1.2rem;
     }
 
     footer {
@@ -84,15 +106,16 @@
       margin-top: auto;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
+    @media (max-width: 960px) {
+      main {
+        flex-direction: column;
+        align-items: center;
       }
-
-      ol li {
-        font-size: 1rem;
+      .balloon {
+        width: 90%;
       }
     }
+
   </style>
 </head>
 <body>
@@ -108,20 +131,36 @@
   </header>
 
   <main>
-    <h1>Regras do FrostMC</h1>
-    <ol>
-      <li>Respeite todos os jogadores e membros da staff. Ofensas e discriminações não serão toleradas.</li>
-      <li>Não é permitido uso de cheats, hacks ou qualquer tipo de trapaça no servidor.</li>
-      <li>Evite spam em chats e canais de voz.</li>
-      <li>Não divulgue links ou conteúdos impróprios sem autorização.</li>
-      <li>O respeito à propriedade e construções dos outros jogadores é obrigatório.</li>
-      <li>Não abuse de bugs ou falhas do servidor, reporte-os imediatamente.</li>
-      <li>Utilize os canais corretos para denúncias, sugestões e feedback.</li>
-      <li>O uso de linguagem ofensiva, tóxica ou de mau gosto pode resultar em punições.</li>
-      <li>Seja cordial e ajude a manter um ambiente saudável para todos.</li>
-      <li>Decisões da administração são finais e devem ser respeitadas.</li>
-    </ol>
+    <section class="balloon">
+      <h2>Regras da Comunidade Discord</h2>
+      <ul>
+        <li>Respeite todos os membros e staff, evite ofensas e discriminações.</li>
+        <li>Proibido spam e flood em canais de texto e voz.</li>
+        <li>Não compartilhe conteúdo impróprio ou ilegal.</li>
+        <li>Utilize os canais adequados para sugestões e denúncias.</li>
+        <li>Não faça divulgações sem autorização da administração.</li>
+        <li>Respeite as decisões da equipe e colabore para um ambiente saudável.</li>
+      </ul>
+    </section>
+
+    <section class="balloon">
+      <h2>Regras da Comunidade Minecraft</h2>
+      <ul>
+        <li>Proibido uso de cheats, hacks e mods ilegais.</li>
+        <li>Respeite as construções e propriedades dos outros jogadores.</li>
+        <li>Não abuse de bugs e reporte imediatamente ao staff.</li>
+        <li>Evite comportamento tóxico, brigas e linguagem ofensiva.</li>
+        <li>Spam no chat e publicidade são proibidos.</li>
+        <li>Colabore para manter um ambiente justo e divertido para todos.</li>
+      </ul>
+    </section>
   </main>
+
+  <div class="alert-box">
+    <p>
+      ⚠️ <strong>Aviso importante:</strong> O descumprimento das regras pode resultar em advertências, mutas, banimentos temporários ou permanentes, conforme a gravidade da infração e a decisão da administração. Respeite a comunidade para garantir um ambiente seguro e agradável para todos!
+    </p>
+  </div>
 
   <footer>
     &copy; 2025 FrostMC. Todos os direitos reservados.
