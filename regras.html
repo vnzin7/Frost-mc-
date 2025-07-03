@@ -1,66 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Regras • Frost</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regras • FrostMC</title>
+  <link rel="icon" href="logo.png" type="image/png" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #1e3a8a);
-      color: white;
       margin: 0;
-    }
-
-    header, footer {
-      background-color: #0c1445;
-      padding: 20px;
-      text-align: center;
-    }
-
-    nav {
+      background-color: #0f172a;
+      color: #f0f9ff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      background-color: #1e3a8a;
-      padding: 15px 0;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #0c1445;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      height: 40px;
     }
 
     nav a {
-      color: white;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: bold;
+      color: #f0f9ff;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
     }
 
     main {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
     }
 
-    ul {
-      text-align: left;
-      margin-top: 20px;
+    h1 {
+      text-align: center;
+      color: #60a5fa;
+      margin-bottom: 30px;
+      font-size: 2.8rem;
+    }
+
+    ol {
+      padding-left: 20px;
+      font-size: 1.1rem;
+    }
+
+    ol li {
+      margin-bottom: 18px;
+      background-color: #1e3a8a;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+      transition: background-color 0.3s;
+    }
+
+    ol li:hover {
+      background-color: #3b82f6;
+      color: #fff;
+    }
+
+    footer {
+      background-color: #0c1445;
+      text-align: center;
+      padding: 20px;
+      color: #93c5fd;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      ol li {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header><h1>Regras do Servidor Frost</h1></header>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="vip.html">Comprar VIP</a>
-    <a href="regras.html">Regras</a>
-    <a href="feedback.html">Feedback</a>
-  </nav>
+
+  <header>
+    <img src="logo.png" alt="Logo Frost" class="logo" />
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="vip.html">VIP</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="regras.html">Regras</a>
+    </nav>
+  </header>
+
   <main>
-    <h2>Regras Gerais</h2>
-    <ul>
-      <li>❌ Sem trapaças ou hacks</li>
-      <li>❌ Sem ofensas ou preconceito</li>
-      <li>❌ Sem divulgação sem permissão</li>
-      <li>❌ Sem abuso de bugs</li>
-      <li>✅ Respeite todos os jogadores</li>
-    </ul>
+    <h1>Regras do FrostMC</h1>
+    <ol>
+      <li>Respeite todos os jogadores e membros da staff. Ofensas e discriminações não serão toleradas.</li>
+      <li>Não é permitido uso de cheats, hacks ou qualquer tipo de trapaça no servidor.</li>
+      <li>Evite spam em chats e canais de voz.</li>
+      <li>Não divulgue links ou conteúdos impróprios sem autorização.</li>
+      <li>O respeito à propriedade e construções dos outros jogadores é obrigatório.</li>
+      <li>Não abuse de bugs ou falhas do servidor, reporte-os imediatamente.</li>
+      <li>Utilize os canais corretos para denúncias, sugestões e feedback.</li>
+      <li>O uso de linguagem ofensiva, tóxica ou de mau gosto pode resultar em punições.</li>
+      <li>Seja cordial e ajude a manter um ambiente saudável para todos.</li>
+      <li>Decisões da administração são finais e devem ser respeitadas.</li>
+    </ol>
   </main>
-  <footer>&copy; 2025 FrostMC</footer>
+
+  <footer>
+    &copy; 2025 FrostMC. Todos os direitos reservados.
+  </footer>
+
 </body>
 </html>
