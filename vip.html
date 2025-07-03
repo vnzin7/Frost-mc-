@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comprar VIP • Frost</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e3a8a);
+      color: white;
+    }
+
+    header, footer {
+      background-color: #0c1445;
+      text-align: center;
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background-color: #1e3a8a;
+      padding: 15px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #60a5fa;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .vip-card {
+      background-color: #1e40af;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+    }
+
+    .vip-card h2 {
+      margin-bottom: 10px;
+    }
+
+    .vip-card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #38bdf8;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .vip-card button:hover {
+      background-color: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>VIPs Frost</h1>
+    <p>Ajude o servidor e desbloqueie vantagens incríveis!</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="vip.html">Comprar VIP</a>
+    <a href="regras.html">Regras</a>
+    <a href="feedback.html">Feedback</a>
+  </nav>
+
+  <main>
+    <div class="vip-card">
+      <h2>VIP Gelo ❄️</h2>
+      <p>Prefixo no chat, /kit gelo, acesso à loja VIP</p>
+      <p><strong>R$ 10,00</strong></p>
+      <button onclick="window.open('https://mpago.li/SEULINKVIP1', '_blank')">Comprar com MercadoPago</button>
+    </div>
+
+    <div class="vip-card">
+      <h2>VIP Congelado 🧊</h2>
+      <p>Tudo do VIP + /fly, área exclusiva e nome azul</p>
+      <p><strong>R$ 20,00</strong></p>
+      <button onclick="window.open('https://mpago.li/SEULINKVIP2', '_blank')">Comprar com MercadoPago</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 FrostMC - Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
