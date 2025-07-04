@@ -4,228 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atendimento • FrostMC</title>
-  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="icon" href="logo.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
-
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0b1229, #1c2a58);
       color: #e0e7ff;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      padding: 20px;
+      text-align: center;
     }
-
     .container {
-      display: flex;
-      gap: 30px;
-      max-width: 1000px;
-      width: 100%;
       background: #142854;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(60, 100, 255, 0.6);
-      padding: 40px;
-    }
-
-    /* Form card */
-    .form-card {
-      flex: 2;
-      background: #1e3a8a;
       padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(96, 165, 250, 0.7);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .form-card h1 {
-      margin: 0 0 15px 0;
-      font-size: 2.6rem;
-      color: #60a5fa;
-      letter-spacing: 2px;
-      text-shadow: 0 0 12px #93c5fd;
-      text-align: center;
-    }
-
-    .form-card p.description {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #cbd5e1;
-      text-align: center;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
-
-    input[type="text"],
-    textarea {
-      padding: 18px 22px;
-      border-radius: 14px;
-      border: none;
-      font-size: 1.2rem;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      resize: vertical;
-      background: #2549b5;
-      color: #e0e7ff;
-      box-shadow: inset 0 0 8px rgba(96, 165, 250, 0.6);
-    }
-
-    input[type="text"]:focus,
-    textarea:focus {
-      outline: none;
-      box-shadow: 0 0 22px #60a5fa;
-      transform: scale(1.03);
-      background: #3b63ff;
-    }
-
-    button {
-      background-color: #60a5fa;
-      color: #0f172a;
-      font-weight: 700;
-      font-size: 1.3rem;
-      padding: 18px 0;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      box-shadow: 0 6px 22px rgba(96, 165, 250, 0.7);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #93c5fd;
-      transform: scale(1.07);
-    }
-
-    button:active {
-      transform: scale(0.98);
-    }
-
-    /* Solutions card */
-    .solutions-card {
-      flex: 1;
-      background: #16316b;
-      padding: 30px 25px;
-      border-radius: 20px;
+      border-radius: 24px;
       box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
-      color: #cbd5e1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      max-width: 400px;
+      width: 100%;
     }
-
-    .solutions-card h2 {
-      margin: 0 0 20px 0;
-      color: #93c5fd;
-      font-size: 2rem;
-      text-align: center;
-      letter-spacing: 1.2px;
-    }
-
-    .solutions-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .solutions-list li {
-      margin-bottom: 15px;
-      position: relative;
-      padding-left: 25px;
-      cursor: default;
-      transition: color 0.2s ease;
-    }
-
-    .solutions-list li::before {
-      content: '✔️';
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-size: 1.2rem;
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2.8rem;
       color: #60a5fa;
-      user-select: none;
+      text-shadow: 0 0 20px #93c5fd;
     }
-
-    .solutions-list li:hover {
-      color: #dbeafe;
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: #cbd5e1;
     }
-
-    /* Responsive */
-    @media (max-width: 850px) {
-      .container {
-        flex-direction: column;
-        padding: 30px 10px;
-      }
-      .solutions-card {
-        margin-top: 30px;
-        padding: 25px 20px;
-      }
+    button {
+      background-color: #5865F2;
+      border: none;
+      padding: 20px 45px;
+      font-size: 1.4rem;
+      color: white;
+      border-radius: 16px;
+      cursor: pointer;
+      box-shadow: 0 6px 25px rgba(88, 101, 242, 0.8);
+      transition: background-color 0.3s ease, transform 0.25s ease;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #4752c4;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <section class="form-card">
-      <h1>📩 Abrir Ticket de Atendimento</h1>
-      <p class="description">Informe seu nome e descreva seu problema para receber ajuda rápida da nossa equipe.</p>
-      <form id="ticketForm">
-        <input type="text" id="nome" placeholder="Seu nome" required />
-        <textarea id="mensagem" placeholder="Descreva seu problema..." rows="5" required></textarea>
-        <button type="submit">Enviar Ticket</button>
-      </form>
-    </section>
-
-    <aside class="solutions-card">
-      <h2>💡 Soluções Rápidas</h2>
-      <ul class="solutions-list">
-        <li>Reinicie seu jogo antes de abrir ticket.</li>
-        <li>Verifique se o Minecraft está atualizado.</li>
-        <li>Confira sua conexão de internet.</li>
-        <li>Consulte as <a href="regras.html" style="color:#93c5fd; text-decoration:none;">Regras do Servidor</a>.</li>
-        <li>Use comandos básicos para resolver bugs simples.</li>
-        <li>Se for problema de login, tente redefinir sua senha do Minecraft.</li>
-      </ul>
-    </aside>
+    <h1>Atendimento FrostMC</h1>
+    <p>Clique no botão abaixo para abrir um ticket e falar com a nossa equipe no Discord.</p>
+    <button onclick="window.open('https://discord.com/channels/SEU_SERVIDOR_ID/SEU_CANAL_DE_ATENDIMENTO_ID', '_blank')">
+      Abrir Ticket no Discord
+    </button>
   </div>
-
-  <script>
-    document.getElementById('ticketForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nome = document.getElementById('nome').value.trim();
-      const mensagem = document.getElementById('mensagem').value.trim();
-
-      if(!nome || !mensagem) {
-        alert('Por favor, preencha todos os campos.');
-        return;
-      }
-
-      const ticket = {
-        id: Date.now(),
-        nome,
-        mensagem,
-        resposta: null
-      };
-
-      const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
-      tickets.push(ticket);
-      localStorage.setItem('tickets', JSON.stringify(tickets));
-
-      alert('✅ Ticket enviado com sucesso!');
-      this.reset();
-    });
-  </script>
 </body>
 </html>
