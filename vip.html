@@ -1,267 +1,119 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VIPs • Frost</title>
-  <link rel="icon" href="logo.png" type="image/png" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f172a;
-      color: white;
-      margin: 0;
-    }
+<section class="vip-section">
+  <h2>Planos VIP</h2>
 
-    header {
-      background-color: #0c1445;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      height: 40px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #60a5fa;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-top: 40px;
-      color: #60a5fa;
-    }
-
-    .vip-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .vip-card {
-      background-color: #1e3a8a;
-      padding: 20px;
-      border-radius: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      transition: transform 0.3s;
-    }
-
-    .vip-card:hover {
-      transform: scale(1.03);
-    }
-
-    .vip-card h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .vip-card p {
-      margin: 5px 0;
-      font-size: 15px;
-    }
-
-    .add-btn {
-      margin-top: 20px;
-      width: 100%;
-      text-align: center;
-      background-color: #60a5fa;
-      color: #0f172a;
-      padding: 10px 0;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .add-btn:hover {
-      background-color: #93c5fd;
-    }
-
-    .cart {
-      position: fixed;
-      right: 10px;
-      bottom: 20px;
-      width: 220px;
-      background-color: #1e3a8a;
-      padding: 15px;
-      border-radius: 12px;
-      font-size: 14px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .cart h3 {
-      margin-top: 0;
-      font-size: 16px;
-      color: #93c5fd;
-    }
-
-    .cart ul {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 10px;
-    }
-
-    .cart li {
-      margin-bottom: 5px;
-    }
-
-    .remove-btn {
-      color: #f87171;
-      font-weight: bold;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    .remove-btn:hover {
-      color: #ef4444;
-    }
-
-    .checkout {
-      background-color: #60a5fa;
-      color: #0f172a;
-      padding: 8px;
-      border-radius: 6px;
-      text-align: center;
-      display: block;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .checkout:hover {
-      background-color: #93c5fd;
-    }
-
-    .support {
-      margin: 80px auto 40px;
-      max-width: 700px;
-      text-align: center;
-      background-color: #1e3a8a;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    .support h2 {
-      color: #60a5fa;
-      margin-bottom: 15px;
-    }
-
-    .support a {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #60a5fa;
-      color: #0f172a;
-      padding: 10px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      background-color: #0c1445;
-      padding: 20px;
-      text-align: center;
-      color: #93c5fd;
-      margin-top: 50px;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="logo.png" alt="Logo Frost" class="logo" />
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="vip.html">VIP</a>
-      <a href="feedback.html">Feedback</a>
-      <a href="regras.html">Regras</a>
-    </nav>
-  </header>
-
-  <h1>🛒 Loja de VIPs</h1>
-
-  <div class="vip-container">
-    <div class="vip-card">
-      <h2>💖 Apoiador — R$1,00/mês</h2>
-      <p>• Tag especial e acesso à categoria VIP</p>
-      <p>• Sugestões diretas para a staff</p>
-      <p>• Canal prioritário de denúncias</p>
-      <p>• Cargo exclusivo no Discord</p>
-      <span class="add-btn" onclick="addToCart('Apoiador')">Adicionar ao carrinho</span>
-    </div>
-    <div class="vip-card">
-      <h2>💸 Doador — acima de R$0,50</h2>
-      <p>• TAG Doador como agradecimento</p>
-      <p>• Acesso a categoria VIP com chat/call</p>
-      <p>• Contato direto com a staff</p>
-      <p>• Cargo especial no Discord</p>
-      <span class="add-btn" onclick="addToCart('Doador')">Adicionar ao carrinho</span>
-    </div>
-    <div class="vip-card">
-      <h2>🧪 BETA — R$1,99 (único)</h2>
-      <p>• Acesso ao Beta e Alpha</p>
-      <p>• Cosméticos exclusivos</p>
-      <p>• Canal com a staff</p>
-      <p>• Prioridade nas sugestões</p>
-      <span class="add-btn" onclick="addToCart('BETA')">Adicionar ao carrinho</span>
-    </div>
-    <div class="vip-card">
-      <h2>🚀 Booster — 1 Boost no Discord</h2>
-      <p>• Todos benefícios do Apoiador + Doador</p>
-      <p>• Comandos /color e /colors</p>
-      <p>• Nome colorido e tela compartilhada</p>
-      <p>• Efeitos sonoros em chamadas</p>
-      <span class="add-btn" onclick="addToCart('Booster')">Adicionar ao carrinho</span>
-    </div>
+  <div class="vip-card vip-raro">
+    <h3>🚨 LANÇAMENTO LIMITADO — VIP RARO DISPONÍVEL! 🚨</h3>
+    <p style="font-weight:600; font-size:1.1rem; margin-bottom: 12px;">
+      💎 Novo VIP exclusivo: <strong>@cargo desconhecido</strong><br />
+      📅 Disponível apenas por <strong>30 dias</strong>! (1 mês)<br />
+      🎉 Adquira agora por apenas <strong>R$ 3,99</strong> e desbloqueie uma experiência completa no Frost MC!<br />
+      ⚠️ Preço promocional por tempo limitado. Depois... só mais caro.
+    </p>
+    <h4>Benefícios VIP Exclusivo:</h4>
+    <ul>
+      <li>🔹 Cargo especial no Discord: <strong>@cargo desconhecido</strong></li>
+      <li>🔹 Cargo VIP especial dentro do Minecraft</li>
+      <li>🔹 Categoria VIP com canais de voz e texto exclusivos</li>
+      <li>🔹 Contato mais próximo com a Staff e Direção</li>
+      <li>🔹 Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
+      <li>🔹 Participação em sorteios exclusivos para VIPs</li>
+      <li>🔹 +Chance em sorteios globais do servidor</li>
+      <li>🔹 Permissão para enviar links e mídias no chat geral</li>
+      <li>🔹 Permissão para alterar seu nick no Discord</li>
+      <li>🔹 Permissão para compartilhar tela em calls</li>
+      <li>🔹 Permissão para usar efeitos sonoros nas chamadas de voz</li>
+    </ul>
+    <p style="font-weight:700; font-size:1.2rem; margin-top: 20px;">
+      🎯 Essa é sua chance de se destacar no Frost MC!<br />
+      💰 Compre agora antes que o tempo acabe — e o preço suba!
+    </p>
+    <div class="preco">R$ 3,99 (30 dias)</div>
   </div>
 
-  <div class="cart">
-    <h3>Carrinho</h3>
-    <ul id="cart-list"></ul>
-    <a href="https://discord.com/channels/@me" target="_blank" class="checkout">Finalizar Compra</a>
+  <!-- Exemplo do Apoiador -->
+  <div class="vip-card apoiador">
+    <h3>💖 Apoiador</h3>
+    <ul>
+      <li>💰 R$ 1,00/mês</li>
+      <li>Tag especial na comunidade</li>
+      <li>Acesso à categoria VIP</li>
+      <li>Envio de sugestões direto à staff</li>
+      <li>Cargo exclusivo no Discord</li>
+    </ul>
+    <div class="preco">R$ 1,00/mês</div>
   </div>
 
-  <div class="support">
-    <h2>❓ Precisa de ajuda?</h2>
-    <p>Se estiver com dúvidas ou problemas com sua compra, abra um ticket com nossa equipe de suporte.</p>
-    <a href="https://discord.com/channels/@me" target="_blank">Abrir Suporte no Discord</a>
-  </div>
+  <!-- Outros VIPs aqui -->
+</section>
 
-  <footer>
-    &copy; 2025 FrostMC - Loja de VIPs. Todos os direitos reservados.
-  </footer>
-
-  <script>
-    const cartList = document.getElementById("cart-list");
-
-    function addToCart(item) {
-      const li = document.createElement("li");
-      li.innerHTML = `${item} <span class="remove-btn" onclick="removeFromCart(this)">❌</span>`;
-      cartList.appendChild(li);
-    }
-
-    function removeFromCart(btn) {
-      const li = btn.parentElement;
-      li.remove();
-    }
-  </script>
-</body>
-</html>
+<style>
+  .vip-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 15px;
+    color: #e0e7ff;
+  }
+  .vip-section h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #60a5fa;
+    text-shadow: 0 0 20px #93c5fd;
+  }
+  .vip-card {
+    background: #16316b;
+    border-radius: 20px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
+  }
+  .vip-card.vip-raro {
+    background: linear-gradient(90deg, #f107a3, #7b2ff7);
+    box-shadow: 0 0 25px #f107a3;
+    color: #fff;
+    border: 2px solid #f107a3;
+  }
+  .vip-card.vip-raro h3 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  .vip-card.vip-raro ul {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .vip-card.vip-raro ul li::before {
+    content: "🔹";
+    margin-right: 8px;
+    color: #ffd6f0;
+    position: relative;
+    top: 1px;
+  }
+  .vip-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .vip-card ul {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  .vip-card ul li::before {
+    content: "🔹";
+    margin-right: 8px;
+    color: #60a5fa;
+    position: relative;
+    top: 1px;
+  }
+  .preco {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #93c5fd;
+    text-align: right;
+  }
+</style>
