@@ -3,33 +3,31 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Comprar VIP • FrostMC</title>
+<title>Planos VIP - FrostMC</title>
 <link rel="icon" href="logo.png" />
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-  * {
-    box-sizing: border-box;
-  }
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0b1229, #1c2a58);
+    background: linear-gradient(135deg, #0f172a, #1e293b);
     color: #e0e7ff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
+
   header {
-    background: #142854;
+    background: #111827;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 40px;
-    box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
+    padding: 1rem 2.5rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
   }
   header img.logo {
     height: 48px;
@@ -42,159 +40,158 @@
   nav a {
     color: #cbd5e1;
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 2rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    transition: color 0.25s ease;
   }
   nav a:hover {
-    color: #60a5fa;
+    color: #3b82f6;
   }
 
   main {
     flex: 1;
-    max-width: 900px;
-    margin: 60px auto 80px;
-    padding: 0 20px;
+    max-width: 960px;
+    margin: 3rem auto 4rem;
+    padding: 0 1rem;
   }
 
   h1 {
     text-align: center;
-    font-size: 2.8rem;
-    color: #60a5fa;
-    text-shadow: 0 0 20px #93c5fd;
-    margin-bottom: 40px;
+    font-size: 2.75rem;
     font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 15px rgba(59,130,246,0.5);
   }
 
   .vip-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2.5rem;
   }
 
   .vip-card {
-    background: #16316b;
-    border-radius: 18px;
-    padding: 20px 20px 25px;
-    box-shadow: 0 6px 25px rgba(33, 66, 161, 0.75);
-    color: #e0e7ff;
+    background: #1e293b;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    padding: 1.8rem 2rem 2rem;
     display: flex;
     flex-direction: column;
-    transition: transform 0.25s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .vip-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.85);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(59, 130, 246, 0.7);
   }
 
-  /* VIP Diamond */
-  .vip-diamond {
-    background: linear-gradient(90deg, #00bfff, #1e90ff);
-    box-shadow: 0 0 20px #1e90ff;
-    border: 2px solid #00bfff;
-    color: #fff;
-  }
-  .vip-diamond h3 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 14px;
-    text-align: center;
-    text-shadow: 0 0 8px #66ccff;
+  .vip-header {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-bottom: 1.3rem;
   }
-  .vip-diamond h3 .emoji {
-    margin-right: 8px;
-    font-size: 1.8rem;
+  .vip-header .emoji {
+    font-size: 2.4rem;
+    margin-right: 0.8rem;
   }
-  .vip-diamond p {
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 14px;
-    line-height: 1.4;
-    text-align: center;
-  }
-  .vip-diamond ul {
-    list-style: none;
-    padding-left: 20px;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  .vip-diamond ul li {
-    margin-bottom: 7px;
-    position: relative;
-  }
-  .vip-diamond ul li::before {
-    content: "🔹";
-    position: absolute;
-    left: 0;
-    top: 3px;
-    color: #66ccff;
-  }
-  .vip-diamond .preco {
+  .vip-header h3 {
+    font-size: 1.7rem;
     font-weight: 700;
-    font-size: 1.25rem;
-    text-align: center;
-    color: #66ccff;
+    color: #60a5fa;
+    text-shadow: 0 0 6px rgba(96, 165, 250, 0.7);
+  }
+
+  .vip-price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #3b82f6;
     margin-top: auto;
+    text-align: center;
+    padding: 0.7rem 0;
+    border-top: 1px solid #334155;
   }
 
-  /* VIPs padrão */
-  .vip-card h3 {
-    margin-top: 0;
-    margin-bottom: 18px;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #60a5fa;
-    text-shadow: 0 0 8px #93c5fd;
-    text-align: left;
-    display: flex;
-    align-items: center;
-  }
-  .vip-card h3 .emoji {
-    margin-right: 6px;
-    font-size: 1.5rem;
-  }
-  .vip-card ul {
-    list-style: none;
-    padding-left: 22px;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 22px;
-  }
-  .vip-card ul li {
-    margin-bottom: 7px;
-    position: relative;
-  }
-  .vip-card ul li::before {
-    content: "🔹";
-    position: absolute;
-    left: 0;
-    top: 3px;
-    color: #60a5fa;
-  }
-  .preco {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: #93c5fd;
+  .vip-description {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #a5b4fc;
     text-align: center;
   }
 
-  @media (max-width: 650px) {
+  .vip-benefits {
+    list-style: none;
+    padding-left: 1.4rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #dbeafe;
+    margin-bottom: 1.8rem;
+  }
+  .vip-benefits li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .vip-benefits li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #3b82f6;
+    font-weight: 700;
+  }
+
+  .vip-button {
+    background: #3b82f6;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    padding: 0.9rem 1.5rem;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s ease;
+    text-decoration: none;
+  }
+  .vip-button:hover {
+    background: #2563eb;
+  }
+
+  /* VIP Diamond especial */
+  .vip-diamond {
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    box-shadow: 0 0 25px #60a5fa;
+    color: white;
+  }
+  .vip-diamond .vip-header h3 {
+    color: #f0f9ff;
+    text-shadow: 0 0 12px #bfdbfe;
+  }
+  .vip-diamond .vip-benefits li::before {
+    content: '💎';
+    color: #e0f2fe;
+  }
+  .vip-diamond .vip-button {
+    background: #60a5fa;
+  }
+  .vip-diamond .vip-button:hover {
+    background: #3b82f6;
+  }
+
+  /* Responsivo */
+  @media (max-width: 600px) {
+    main {
+      margin: 2rem 1rem 3rem;
+    }
     header {
       flex-direction: column;
-      gap: 15px;
+      align-items: center;
+      gap: 1rem;
     }
     nav a {
-      margin-left: 15px;
-      font-size: 1rem;
-    }
-    main {
-      margin: 40px 15px 50px;
+      margin-left: 1rem;
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -213,15 +210,17 @@
 </header>
 
 <main>
-  <h1>Planos VIP</h1>
+  <h1>Planos VIP - FrostMC</h1>
 
   <div class="vip-grid">
 
-    <!-- VIP Diamond -->
     <div class="vip-card vip-diamond">
-      <h3><span class="emoji">💎</span> VIP Diamond</h3>
-      <p>Disponível apenas por <strong>30 dias</strong>! (1 mês)</p>
-      <ul>
+      <div class="vip-header">
+        <span class="emoji">💎</span>
+        <h3>VIP Diamond</h3>
+      </div>
+      <p class="vip-description">Disponível apenas por <strong>30 dias</strong>! (1 mês)</p>
+      <ul class="vip-benefits">
         <li>Cargo especial no Discord: <strong>@cargo desconhecido</strong></li>
         <li>Cargo VIP especial dentro do Minecraft</li>
         <li>Categoria VIP com canais de voz e texto exclusivos</li>
@@ -234,39 +233,48 @@
         <li>Permissão para compartilhar tela em calls</li>
         <li>Permissão para usar efeitos sonoros nas chamadas de voz</li>
       </ul>
-      <div class="preco">R$ 3,99 (30 dias)</div>
+      <div class="vip-price">R$ 3,99 (30 dias)</div>
+      <a href="https://discord.gg/SEULINKDETICKET" class="vip-button" target="_blank" rel="noopener noreferrer">Comprar VIP Diamond</a>
     </div>
 
-    <!-- Apoiador -->
-    <div class="vip-card apoiador">
-      <h3><span class="emoji">💖</span> Apoiador</h3>
-      <ul>
+    <div class="vip-card">
+      <div class="vip-header">
+        <span class="emoji">💖</span>
+        <h3>Apoiador</h3>
+      </div>
+      <ul class="vip-benefits">
         <li>R$ 1,00/mês</li>
         <li>Tag especial na comunidade</li>
         <li>Acesso à categoria VIP</li>
         <li>Envio de sugestões direto à staff</li>
         <li>Cargo exclusivo no Discord</li>
       </ul>
-      <div class="preco">R$ 1,00/mês</div>
+      <div class="vip-price">R$ 1,00/mês</div>
+      <a href="https://discord.gg/SEULINKDETICKET" class="vip-button" target="_blank" rel="noopener noreferrer">Comprar Apoiador</a>
     </div>
 
-    <!-- Doador -->
-    <div class="vip-card doador">
-      <h3><span class="emoji">💙</span> Doador</h3>
-      <ul>
+    <div class="vip-card">
+      <div class="vip-header">
+        <span class="emoji">💙</span>
+        <h3>Doador</h3>
+      </div>
+      <ul class="vip-benefits">
         <li>Qualquer valor acima de R$ 0,50</li>
         <li>Receba a TAG Doador como forma de agradecimento</li>
         <li>Acesso à categoria VIP com chat e call exclusiva</li>
         <li>Contato direto com a staff para sugestões e denúncias</li>
         <li>Cargo especial no Discord</li>
       </ul>
-      <div class="preco">Acima de R$ 0,50</div>
+      <div class="vip-price">Acima de R$ 0,50</div>
+      <a href="https://discord.gg/SEULINKDETICKET" class="vip-button" target="_blank" rel="noopener noreferrer">Comprar Doador</a>
     </div>
 
-    <!-- BETA -->
-    <div class="vip-card beta">
-      <h3><span class="emoji">💰</span> BETA</h3>
-      <ul>
+    <div class="vip-card">
+      <div class="vip-header">
+        <span class="emoji">💰</span>
+        <h3>BETA</h3>
+      </div>
+      <ul class="vip-benefits">
         <li>R$ 1,99 (pagamento único)</li>
         <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
         <li>Permissão para usar cosméticos exclusivos beta dentro do jogo</li>
@@ -274,13 +282,16 @@
         <li>Sugestões com prioridade</li>
         <li>Cargo superior ao Apoiador no Discord</li>
       </ul>
-      <div class="preco">R$ 1,99 (único)</div>
+      <div class="vip-price">R$ 1,99 (único)</div>
+      <a href="https://discord.gg/SEULINKDETICKET" class="vip-button" target="_blank" rel="noopener noreferrer">Comprar BETA</a>
     </div>
 
-    <!-- Booster -->
-    <div class="vip-card booster">
-      <h3><span class="emoji">🚀</span> Booster</h3>
-      <ul>
+    <div class="vip-card">
+      <div class="vip-header">
+        <span class="emoji">🚀</span>
+        <h3>Booster</h3>
+      </div>
+      <ul class="vip-benefits">
         <li>Apenas 1 Boost no Discord</li>
         <li>Recebe todos os benefícios do Apoiador + Doador</li>
         <li>Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
@@ -289,7 +300,8 @@
         <li>Permissão para usar efeitos sonoros em chamadas (com moderação)</li>
         <li>Maior visibilidade e apoio direto ao crescimento da comunidade</li>
       </ul>
-      <div class="preco">Apenas 1 Boost</div>
+      <div class="vip-price">Apenas 1 Boost</div>
+      <a href="https://discord.gg/SEULINKDETICKET" class="vip-button" target="_blank" rel="noopener noreferrer">Comprar Booster</a>
     </div>
 
   </div>
