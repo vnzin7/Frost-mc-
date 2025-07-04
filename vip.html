@@ -53,14 +53,14 @@
 
   main {
     flex: 1;
-    max-width: 960px;
+    max-width: 900px;
     margin: 60px auto 80px;
     padding: 0 20px;
   }
 
   h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: #60a5fa;
     text-shadow: 0 0 20px #93c5fd;
     margin-bottom: 40px;
@@ -69,26 +69,26 @@
 
   .vip-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 24px;
   }
 
   .vip-card {
     background: #16316b;
-    border-radius: 20px;
-    padding: 25px 25px 30px;
-    box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
+    border-radius: 18px;
+    padding: 20px 20px 25px;
+    box-shadow: 0 6px 25px rgba(33, 66, 161, 0.75);
     color: #e0e7ff;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
   }
   .vip-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(88, 101, 242, 0.9);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.85);
   }
 
-  /* VIP Diamond compacto e elegante */
+  /* VIP Diamond */
   .vip-diamond {
     background: linear-gradient(90deg, #00bfff, #1e90ff);
     box-shadow: 0 0 20px #1e90ff;
@@ -97,23 +97,30 @@
   }
   .vip-diamond h3 {
     margin-top: 0;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     text-align: center;
-    text-shadow: 0 0 10px #66ccff;
+    text-shadow: 0 0 8px #66ccff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .vip-diamond h3 .emoji {
+    margin-right: 8px;
+    font-size: 1.8rem;
   }
   .vip-diamond p {
     font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 15px;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
     line-height: 1.4;
     text-align: center;
   }
   .vip-diamond ul {
     list-style: none;
     padding-left: 20px;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 20px;
   }
@@ -130,7 +137,7 @@
   }
   .vip-diamond .preco {
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     text-align: center;
     color: #66ccff;
     margin-top: auto;
@@ -139,19 +146,25 @@
   /* VIPs padrão */
   .vip-card h3 {
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #60a5fa;
-    text-shadow: 0 0 10px #93c5fd;
-    text-align: center;
+    text-shadow: 0 0 8px #93c5fd;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  .vip-card h3 .emoji {
+    margin-right: 6px;
+    font-size: 1.5rem;
   }
   .vip-card ul {
     list-style: none;
-    padding-left: 20px;
-    font-size: 1.05rem;
+    padding-left: 22px;
+    font-size: 1rem;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
   .vip-card ul li {
     margin-bottom: 7px;
@@ -166,12 +179,11 @@
   }
   .preco {
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     color: #93c5fd;
     text-align: center;
   }
 
-  /* Responsivo */
   @media (max-width: 650px) {
     header {
       flex-direction: column;
@@ -207,7 +219,7 @@
 
     <!-- VIP Diamond -->
     <div class="vip-card vip-diamond">
-      <h3>💎 VIP Diamond</h3>
+      <h3><span class="emoji">💎</span> VIP Diamond</h3>
       <p>Disponível apenas por <strong>30 dias</strong>! (1 mês)</p>
       <ul>
         <li>Cargo especial no Discord: <strong>@cargo desconhecido</strong></li>
@@ -227,7 +239,7 @@
 
     <!-- Apoiador -->
     <div class="vip-card apoiador">
-      <h3>💖 Apoiador</h3>
+      <h3><span class="emoji">💖</span> Apoiador</h3>
       <ul>
         <li>R$ 1,00/mês</li>
         <li>Tag especial na comunidade</li>
@@ -240,7 +252,7 @@
 
     <!-- Doador -->
     <div class="vip-card doador">
-      <h3>💙 Doador</h3>
+      <h3><span class="emoji">💙</span> Doador</h3>
       <ul>
         <li>Qualquer valor acima de R$ 0,50</li>
         <li>Receba a TAG Doador como forma de agradecimento</li>
@@ -253,7 +265,7 @@
 
     <!-- BETA -->
     <div class="vip-card beta">
-      <h3>💰 BETA</h3>
+      <h3><span class="emoji">💰</span> BETA</h3>
       <ul>
         <li>R$ 1,99 (pagamento único)</li>
         <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
@@ -267,7 +279,7 @@
 
     <!-- Booster -->
     <div class="vip-card booster">
-      <h3>🚀 Booster</h3>
+      <h3><span class="emoji">🚀</span> Booster</h3>
       <ul>
         <li>Apenas 1 Boost no Discord</li>
         <li>Recebe todos os benefícios do Apoiador + Doador</li>
