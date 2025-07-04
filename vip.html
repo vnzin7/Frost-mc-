@@ -1,301 +1,287 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Comprar VIP • FrostMC</title>
-  <link rel="icon" href="logo.png" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Comprar VIP • FrostMC</title>
+<link rel="icon" href="logo.png" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0b1229, #1c2a58);
-      color: #e0e7ff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    /* Header fixo */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0b1229, #1c2a58);
+    color: #e0e7ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: #142854;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  header img.logo {
+    height: 48px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+  header img.logo:hover {
+    filter: brightness(1.2);
+  }
+  nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #60a5fa;
+  }
+
+  main {
+    flex: 1;
+    max-width: 960px;
+    margin: 60px auto 80px;
+    padding: 0 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #60a5fa;
+    text-shadow: 0 0 20px #93c5fd;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+
+  .vip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+  }
+
+  .vip-card {
+    background: #16316b;
+    border-radius: 20px;
+    padding: 25px 25px 30px;
+    box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
+    color: #e0e7ff;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+  }
+  .vip-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(88, 101, 242, 0.9);
+  }
+
+  /* VIP Diamond compacto e elegante */
+  .vip-diamond {
+    background: linear-gradient(90deg, #00bfff, #1e90ff);
+    box-shadow: 0 0 20px #1e90ff;
+    border: 2px solid #00bfff;
+    color: #fff;
+  }
+  .vip-diamond h3 {
+    margin-top: 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 10px #66ccff;
+  }
+  .vip-diamond p {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .vip-diamond ul {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .vip-diamond ul li {
+    margin-bottom: 7px;
+    position: relative;
+  }
+  .vip-diamond ul li::before {
+    content: "🔹";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: #66ccff;
+  }
+  .vip-diamond .preco {
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #66ccff;
+    margin-top: auto;
+  }
+
+  /* VIPs padrão */
+  .vip-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #60a5fa;
+    text-shadow: 0 0 10px #93c5fd;
+    text-align: center;
+  }
+  .vip-card ul {
+    list-style: none;
+    padding-left: 20px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+  }
+  .vip-card ul li {
+    margin-bottom: 7px;
+    position: relative;
+  }
+  .vip-card ul li::before {
+    content: "🔹";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    color: #60a5fa;
+  }
+  .preco {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #93c5fd;
+    text-align: center;
+  }
+
+  /* Responsivo */
+  @media (max-width: 650px) {
     header {
-      background: #142854;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 40px;
-      box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header img.logo {
-      height: 48px;
-      cursor: pointer;
-      transition: filter 0.3s ease;
-    }
-    header img.logo:hover {
-      filter: brightness(1.2);
+      flex-direction: column;
+      gap: 15px;
     }
     nav a {
-      color: #cbd5e1;
-      text-decoration: none;
-      margin-left: 30px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
+      margin-left: 15px;
+      font-size: 1rem;
     }
-    nav a:hover {
-      color: #60a5fa;
-    }
-
     main {
-      flex: 1;
-      max-width: 960px;
-      margin: 60px auto 80px;
-      padding: 0 20px;
+      margin: 40px 15px 50px;
     }
-
-    h1 {
-      text-align: center;
-      font-size: 3rem;
-      color: #60a5fa;
-      text-shadow: 0 0 20px #93c5fd;
-      margin-bottom: 40px;
-    }
-
-    /* Grid para os cards VIP */
-    .vip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 30px;
-    }
-
-    /* Card VIP base */
-    .vip-card {
-      background: #16316b;
-      border-radius: 20px;
-      padding: 30px 25px;
-      box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
-      color: #e0e7ff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-    .vip-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 35px rgba(88, 101, 242, 0.9);
-    }
-
-    /* VIP Raro exclusivo destacado */
-    .vip-raro {
-      grid-column: 1 / -1;
-      background: linear-gradient(90deg, #f107a3, #7b2ff7);
-      box-shadow: 0 0 25px #f107a3;
-      border: 3px solid #f107a3;
-      color: #fff;
-    }
-    .vip-raro h2 {
-      margin-top: 0;
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 15px;
-      text-align: center;
-      text-shadow: 0 0 15px #ff84c4;
-    }
-    .vip-raro p {
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      line-height: 1.4;
-      text-align: center;
-    }
-    .vip-raro ul {
-      list-style: none;
-      padding-left: 0;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 25px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .vip-raro ul li {
-      margin-bottom: 8px;
-      position: relative;
-      padding-left: 26px;
-    }
-    .vip-raro ul li::before {
-      content: "🔹";
-      position: absolute;
-      left: 0;
-      top: 2px;
-      color: #ffd6f0;
-    }
-    .vip-raro .preco {
-      font-weight: 700;
-      font-size: 1.5rem;
-      text-align: center;
-      color: #ffd6f0;
-      margin-top: auto;
-    }
-
-    /* Títulos VIP padrão */
-    .vip-card h3 {
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #60a5fa;
-      text-shadow: 0 0 10px #93c5fd;
-    }
-    .vip-card ul {
-      list-style: none;
-      padding-left: 20px;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 25px;
-      flex-grow: 1;
-    }
-    .vip-card ul li {
-      margin-bottom: 8px;
-      position: relative;
-    }
-    .vip-card ul li::before {
-      content: "🔹";
-      position: absolute;
-      left: 0;
-      top: 2px;
-      color: #60a5fa;
-    }
-    .preco {
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: #93c5fd;
-      text-align: right;
-    }
-
-    /* Responsivo */
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-      nav a {
-        margin-left: 15px;
-        font-size: 1rem;
-      }
-      main {
-        margin: 40px 15px 50px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo FrostMC" class="logo" />
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="vip.html">VIPs</a>
-      <a href="regras.html">Regras</a>
-      <a href="feedback.html">Feedback</a>
-      <a href="atendimento.html">Atendimento</a>
-    </nav>
-  </header>
+<header>
+  <img src="logo.png" alt="Logo FrostMC" class="logo" />
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="vip.html">VIPs</a>
+    <a href="regras.html">Regras</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="atendimento.html">Atendimento</a>
+  </nav>
+</header>
 
-  <main>
-    <h1>Planos VIP</h1>
+<main>
+  <h1>Planos VIP</h1>
 
-    <div class="vip-grid">
+  <div class="vip-grid">
 
-      <!-- VIP Raro exclusivo -->
-      <div class="vip-card vip-raro">
-        <h2>🚨 LANÇAMENTO LIMITADO — VIP RARO DISPONÍVEL! 🚨</h2>
-        <p>
-          💎 Novo VIP exclusivo: <strong>@cargo desconhecido</strong><br />
-          📅 Disponível apenas por <strong>30 dias</strong>! (1 mês)<br />
-          🎉 Adquira agora por apenas <strong>R$ 3,99</strong> e desbloqueie uma experiência completa no Frost MC!<br />
-          ⚠️ Preço promocional por tempo limitado. Depois... só mais caro.
-        </p>
-        <h3>Benefícios VIP Exclusivo:</h3>
-        <ul>
-          <li>Cargo especial no Discord: <strong>@cargo desconhecido</strong></li>
-          <li>Cargo VIP especial dentro do Minecraft</li>
-          <li>Categoria VIP com canais de voz e texto exclusivos</li>
-          <li>Contato mais próximo com a Staff e Direção</li>
-          <li>Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
-          <li>Participação em sorteios exclusivos para VIPs</li>
-          <li>+Chance em sorteios globais do servidor</li>
-          <li>Permissão para enviar links e mídias no chat geral</li>
-          <li>Permissão para alterar seu nick no Discord</li>
-          <li>Permissão para compartilhar tela em calls</li>
-          <li>Permissão para usar efeitos sonoros nas chamadas de voz</li>
-        </ul>
-        <div class="preco">R$ 3,99 (30 dias)</div>
-      </div>
-
-      <!-- Apoiador -->
-      <div class="vip-card apoiador">
-        <h3>💖 Apoiador</h3>
-        <ul>
-          <li>R$ 1,00/mês</li>
-          <li>Tag especial na comunidade</li>
-          <li>Acesso à categoria VIP</li>
-          <li>Envio de sugestões direto à staff</li>
-          <li>Cargo exclusivo no Discord</li>
-        </ul>
-        <div class="preco">R$ 1,00/mês</div>
-      </div>
-
-      <!-- Doador -->
-      <div class="vip-card doador">
-        <h3>💙 Doador</h3>
-        <ul>
-          <li>Qualquer valor acima de R$ 0,50</li>
-          <li>Receba a TAG Doador como forma de agradecimento</li>
-          <li>Acesso à categoria VIP com chat e call exclusiva</li>
-          <li>Contato direto com a staff para sugestões e denúncias</li>
-          <li>Cargo especial no Discord</li>
-        </ul>
-        <div class="preco">Acima de R$ 0,50</div>
-      </div>
-
-      <!-- BETA -->
-      <div class="vip-card beta">
-        <h3>💰 BETA</h3>
-        <ul>
-          <li>R$ 1,99 (pagamento único)</li>
-          <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
-          <li>Permissão para usar cosméticos exclusivos beta dentro do jogo</li>
-          <li>Canal exclusivo com a staff</li>
-          <li>Sugestões com prioridade</li>
-          <li>Cargo superior ao Apoiador no Discord</li>
-        </ul>
-        <div class="preco">R$ 1,99 (único)</div>
-      </div>
-
-      <!-- Booster -->
-      <div class="vip-card booster">
-        <h3>🚀 Booster</h3>
-        <ul>
-          <li>Apenas 1 Boost no Discord</li>
-          <li>Recebe todos os benefícios do Apoiador + Doador</li>
-          <li>Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
-          <li>Nome colorido (cosmético no Discord)</li>
-          <li>Permissão para transmitir tela em qualquer canal de voz público</li>
-          <li>Permissão para usar efeitos sonoros em chamadas (com moderação)</li>
-          <li>Maior visibilidade e apoio direto ao crescimento da comunidade</li>
-        </ul>
-        <div class="preco">Apenas 1 Boost</div>
-      </div>
-
+    <!-- VIP Diamond -->
+    <div class="vip-card vip-diamond">
+      <h3>💎 VIP Diamond</h3>
+      <p>Disponível apenas por <strong>30 dias</strong>! (1 mês)</p>
+      <ul>
+        <li>Cargo especial no Discord: <strong>@cargo desconhecido</strong></li>
+        <li>Cargo VIP especial dentro do Minecraft</li>
+        <li>Categoria VIP com canais de voz e texto exclusivos</li>
+        <li>Contato mais próximo com a Staff e Direção</li>
+        <li>Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
+        <li>Participação em sorteios exclusivos para VIPs</li>
+        <li>+Chance em sorteios globais do servidor</li>
+        <li>Permissão para enviar links e mídias no chat geral</li>
+        <li>Permissão para alterar seu nick no Discord</li>
+        <li>Permissão para compartilhar tela em calls</li>
+        <li>Permissão para usar efeitos sonoros nas chamadas de voz</li>
+      </ul>
+      <div class="preco">R$ 3,99 (30 dias)</div>
     </div>
-  </main>
+
+    <!-- Apoiador -->
+    <div class="vip-card apoiador">
+      <h3>💖 Apoiador</h3>
+      <ul>
+        <li>R$ 1,00/mês</li>
+        <li>Tag especial na comunidade</li>
+        <li>Acesso à categoria VIP</li>
+        <li>Envio de sugestões direto à staff</li>
+        <li>Cargo exclusivo no Discord</li>
+      </ul>
+      <div class="preco">R$ 1,00/mês</div>
+    </div>
+
+    <!-- Doador -->
+    <div class="vip-card doador">
+      <h3>💙 Doador</h3>
+      <ul>
+        <li>Qualquer valor acima de R$ 0,50</li>
+        <li>Receba a TAG Doador como forma de agradecimento</li>
+        <li>Acesso à categoria VIP com chat e call exclusiva</li>
+        <li>Contato direto com a staff para sugestões e denúncias</li>
+        <li>Cargo especial no Discord</li>
+      </ul>
+      <div class="preco">Acima de R$ 0,50</div>
+    </div>
+
+    <!-- BETA -->
+    <div class="vip-card beta">
+      <h3>💰 BETA</h3>
+      <ul>
+        <li>R$ 1,99 (pagamento único)</li>
+        <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
+        <li>Permissão para usar cosméticos exclusivos beta dentro do jogo</li>
+        <li>Canal exclusivo com a staff</li>
+        <li>Sugestões com prioridade</li>
+        <li>Cargo superior ao Apoiador no Discord</li>
+      </ul>
+      <div class="preco">R$ 1,99 (único)</div>
+    </div>
+
+    <!-- Booster -->
+    <div class="vip-card booster">
+      <h3>🚀 Booster</h3>
+      <ul>
+        <li>Apenas 1 Boost no Discord</li>
+        <li>Recebe todos os benefícios do Apoiador + Doador</li>
+        <li>Acesso aos comandos: <code>/color</code> e <code>/colors</code></li>
+        <li>Nome colorido (cosmético no Discord)</li>
+        <li>Permissão para transmitir tela em qualquer canal de voz público</li>
+        <li>Permissão para usar efeitos sonoros em chamadas (com moderação)</li>
+        <li>Maior visibilidade e apoio direto ao crescimento da comunidade</li>
+      </ul>
+      <div class="preco">Apenas 1 Boost</div>
+    </div>
+
+  </div>
+</main>
 
 </body>
 </html>
