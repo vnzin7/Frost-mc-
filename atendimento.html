@@ -7,16 +7,53 @@
   <link rel="icon" href="logo.png" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0b1229, #1c2a58);
       color: #e0e7ff;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+    }
+    header {
+      background: #142854;
+      display: flex;
       align-items: center;
-      padding: 20px;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header img.logo {
+      height: 48px;
+      cursor: pointer;
+      transition: filter 0.3s ease;
+    }
+    header img.logo:hover {
+      filter: brightness(1.2);
+    }
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #60a5fa;
+    }
+    main {
+      flex: 1;
+      max-width: 600px;
+      margin: 60px auto 80px;
+      padding: 0 20px;
       text-align: center;
     }
     .container {
@@ -24,7 +61,6 @@
       padding: 40px 30px;
       border-radius: 24px;
       box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
-      max-width: 400px;
       width: 100%;
     }
     h1 {
@@ -49,20 +85,53 @@
       box-shadow: 0 6px 25px rgba(88, 101, 242, 0.8);
       transition: background-color 0.3s ease, transform 0.25s ease;
       width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
     }
     button:hover {
       background-color: #4752c4;
       transform: scale(1.05);
     }
+
+    /* Responsivo */
+    @media (max-width: 650px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+      }
+      nav a {
+        margin-left: 15px;
+        font-size: 1rem;
+      }
+      main {
+        margin: 40px 15px 50px;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Atendimento FrostMC</h1>
-    <p>Clique no botão abaixo para abrir um ticket e falar com a nossa equipe no Discord.</p>
-    <button onclick="window.open('https://discord.com/channels/SEU_SERVIDOR_ID/SEU_CANAL_DE_ATENDIMENTO_ID', '_blank')">
-      Abrir Ticket no Discord
-    </button>
-  </div>
+
+  <header>
+    <img src="logo.png" alt="Logo FrostMC" class="logo" />
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="vip.html">Comprar VIP</a>
+      <a href="regras.html">Regras</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="atendimento.html">Atendimento</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>Atendimento FrostMC</h1>
+      <p>Clique no botão abaixo para abrir um ticket e falar com a nossa equipe no Discord.</p>
+      <button onclick="window.open('https://discord.com/channels/SEU_SERVIDOR_ID/SEU_CANAL_DE_ATENDIMENTO_ID', '_blank')">
+        Abrir Ticket no Discord
+      </button>
+    </div>
+  </main>
+
 </body>
 </html>
