@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login • FrostMC</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0b1229, #1c2a58);
+      color: #e0e7ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .login-box {
+      background: #1e3a8a;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(96, 165, 250, 0.7);
+      width: 320px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #60a5fa;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px #93c5fd;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      background: #2549b5;
+      color: #e0e7ff;
+      box-shadow: inset 0 0 6px rgba(96, 165, 250, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      box-shadow: 0 0 15px #60a5fa;
+    }
+
+    button {
+      background-color: #60a5fa;
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 15px 0;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(96, 165, 250, 0.6);
+      transition: background-color 0.3s ease;
+      margin-bottom: 12px;
+    }
+
+    button:hover {
+      background-color: #93c5fd;
+    }
+
+    .switch-mode {
+      background: none;
+      border: none;
+      color: #93c5fd;
+      cursor: pointer;
+      text-decoration: underline;
+      font-size: 0.9rem;
+    }
+
+    #errorMessage {
+      color: #f87171;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h1 id="formTitle">Entrar</h1>
+
+    <div id="errorMessage"></div>
+
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuário" required autocomplete="username" />
+      <input type="password" id="password" placeholder="Senha" required autocomplete="current-password" />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <button id="guestBtn">Entrar como Convidado</button>
+
+    <button class="switch-mode" id="switchToRegister">Criar Conta</button>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const guestBtn = document.getElementById('guestBtn');
+    const switchBtn = document.getElementById('switchToRegister');
+    const formTitle = document.getElementById('formTitle');
+    const errorMessage = document.getElementById('errorMessage');
+
+    let isLoginMode = true; // true = login, false = registro
+
+    function showError(msg) {
+      errorMessage.textContent = msg;
+      errorMessage.style.display = 'block';
+    }
+
+    function clearError() {
+      errorMessage.textContent = '';
+      errorMessage.style.display = 'none';
+    }
+
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('frost_users') || '[]');
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem('frost_users', JSON.stringify(users));
+    }
+
+    function saveSession(username, guest = false) {
+      localStorage.setItem('frost_session', JSON.stringify({ username, guest }));
+    }
+
+    function getSession() {
+      return JSON.parse(localStorage.getItem('frost_session') || 'null');
+    }
+
+    function redirectToIndex() {
+      window.location.href = 'index.html';
+    }
+
+    // Verifica sessão ativa
+    const session = getSession();
+    if (session && session.username) {
+      redirectToIndex();
+    }
+
+    // Alterna entre login e registro
+    switchBtn.addEventListener('click', () => {
+      clearError();
+      isLoginMode = !isLoginMode;
+      if (isLoginMode) {
+        formTitle.textContent = 'Entrar';
+        loginForm.querySelector('button').textContent = 'Entrar';
+        switchBtn.textContent = 'Criar Conta';
+        loginForm.password.required = true;
+      } else {
+        formTitle.textContent = 'Criar Conta';
+        loginForm.querySelector('button').textContent = 'Registrar';
+        switchBtn.textContent = 'Voltar para Login';
+        loginForm.password.required = true;
+      }
+    });
+
+    // Form submit
+    loginForm.addEventListener('submit', e => {
+      e.preventDefault();
+      clearError();
+
+      const username = loginForm.username.value.trim();
+      const password = loginForm.password.value;
+
+      if (!username || !password) {
+        showError('Preencha todos os campos!');
+        return;
+      }
+
+      let users = getUsers();
+
+      if (isLoginMode) {
+        // Login
+        const user = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+        if (!user || user.password !== password) {
+          showError('Usuário ou senha incorretos!');
+          return;
+        }
+        saveSession(user.username, false);
+        redirectToIndex();
+      } else {
+        // Registro
+        const userExists = users.some(u => u.username.toLowerCase() === username.toLowerCase());
+        if (userExists) {
+          showError('Usuário já existe!');
+          return;
+        }
+        users.push({ username, password });
+        saveUsers(users);
+        saveSession(username, false);
+        redirectToIndex();
+      }
+    });
+
+    // Entrar como convidado
+    guestBtn.addEventListener('click', () => {
+      clearError();
+      const guestName = 'Convidado_' + Math.floor(Math.random() * 10000);
+      saveSession(guestName, true);
+      redirectToIndex();
+    });
+  </script>
+
+</body>
+</html>
