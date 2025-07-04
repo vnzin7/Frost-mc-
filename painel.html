@@ -1,91 +1,225 @@
-<!-- painel.html -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Painel da Staff • FrostMC</title>
-  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="icon" href="logo.png" type="image/png" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0f172a;
-      color: white;
-      padding: 40px;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #e0e7ff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
     }
+
     h1 {
-      text-align: center;
       color: #60a5fa;
+      text-shadow: 0 0 10px #93c5fd;
+      margin-bottom: 30px;
     }
+
     #loginForm, #painel {
-      max-width: 700px;
-      margin: 20px auto;
-      background: #1e3a8a;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
-    }
-    input, textarea {
+      background: #1e40af;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(96, 165, 250, 0.6);
+      max-width: 800px;
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
+      padding: 30px 40px;
+      box-sizing: border-box;
     }
-    button {
+
+    #loginForm {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+
+    #loginForm input {
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1.1rem;
+      box-shadow: inset 0 0 5px rgba(96, 165, 250, 0.5);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      background: #2563eb;
+      color: #e0e7ff;
+    }
+
+    #loginForm input:focus {
+      outline: none;
+      box-shadow: 0 0 15px #60a5fa;
+      transform: scale(1.03);
+      background: #3b82f6;
+    }
+
+    #loginForm button {
       background-color: #60a5fa;
       color: #0f172a;
-      padding: 10px 20px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 15px 0;
       border: none;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 5px 15px rgba(96, 165, 250, 0.6);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
+    #loginForm button:hover {
+      background-color: #93c5fd;
+      transform: scale(1.05);
+    }
+
+    #loginForm button:active {
+      transform: scale(0.98);
+    }
+
+    #loginError {
+      color: #f87171;
+      font-weight: 700;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    #painel {
+      display: none;
+      flex-direction: column;
+    }
+
+    #ticketsContainer {
+      margin-top: 20px;
+    }
+
     .ticket {
       background: #172554;
-      padding: 15px;
-      margin: 15px 0;
-      border-radius: 10px;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+      transition: background-color 0.3s ease;
+      position: relative;
     }
+
+    .ticket.respondido {
+      background: #14532d;
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
+    }
+
     .ticket h3 {
-      margin-bottom: 5px;
+      margin: 0 0 8px 0;
       color: #93c5fd;
     }
+
     .ticket p {
-      margin-bottom: 10px;
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
     }
-    .resposta {
-      background-color: #0c4a6e;
-      padding: 10px;
-      border-radius: 8px;
-      margin-top: 10px;
+
+    .resposta textarea {
+      width: 100%;
+      resize: vertical;
+      min-height: 60px;
+      border-radius: 12px;
+      border: none;
+      padding: 12px 15px;
+      font-size: 1rem;
+      background: #2563eb;
+      color: #e0e7ff;
+      box-shadow: inset 0 0 8px rgba(96, 165, 250, 0.6);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .resposta textarea:focus {
+      outline: none;
+      box-shadow: 0 0 15px #60a5fa;
+    }
+
+    .ticket-footer {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status {
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #0f172a;
+      background-color: #60a5fa;
+      box-shadow: 0 3px 10px rgba(96, 165, 250, 0.6);
+      user-select: none;
+    }
+
+    .status.respondido {
+      background-color: #22c55e;
+      box-shadow: 0 3px 12px rgba(34, 197, 94, 0.8);
+      color: #f0fdf4;
+    }
+
+    button.resolve-btn {
+      background-color: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.7);
+      transition: background-color 0.3s ease;
+    }
+
+    button.resolve-btn:hover {
+      background-color: #dc2626;
     }
   </style>
 </head>
 <body>
-
-  <h1>🔒 Painel da Staff</h1>
+  <h1>Painel da Staff 🔒</h1>
 
   <div id="loginForm">
-    <input type="password" id="senha" placeholder="Senha de acesso" required>
+    <input type="text" id="usuario" placeholder="Usuário" autocomplete="username" required />
+    <input type="password" id="senha" placeholder="Senha" autocomplete="current-password" required />
     <button onclick="login()">Entrar</button>
+    <div id="loginError">Usuário ou senha incorretos.</div>
   </div>
 
-  <div id="painel" style="display:none">
+  <div id="painel">
     <h2>Tickets Recebidos</h2>
     <div id="ticketsContainer"></div>
   </div>
 
   <script>
+    const usuarios = [
+      { usuario: 'admin', senha: 'frost123' },
+      { usuario: 'mod', senha: 'mod456' },
+      { usuario: 'staff', senha: 'staff789' }
+    ];
+
     function login() {
-      const senha = document.getElementById('senha').value;
-      if (senha === 'froststaff') {
+      const userInput = document.getElementById('usuario').value.trim().toLowerCase();
+      const passInput = document.getElementById('senha').value;
+
+      const valido = usuarios.some(u => u.usuario === userInput && u.senha === passInput);
+
+      if (valido) {
         document.getElementById('loginForm').style.display = 'none';
-        document.getElementById('painel').style.display = 'block';
+        document.getElementById('painel').style.display = 'flex';
         carregarTickets();
       } else {
-        alert('❌ Senha incorreta');
+        const erroDiv = document.getElementById('loginError');
+        erroDiv.style.display = 'block';
       }
     }
 
@@ -93,15 +227,27 @@
       const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
       const container = document.getElementById('ticketsContainer');
       container.innerHTML = '';
+
+      if (tickets.length === 0) {
+        container.innerHTML = '<p>Nenhum ticket recebido ainda.</p>';
+        return;
+      }
+
       tickets.forEach((ticket, index) => {
         const div = document.createElement('div');
-        div.className = 'ticket';
+        div.className = 'ticket' + (ticket.resposta ? ' respondido' : '');
         div.innerHTML = `
           <h3>${ticket.nome}</h3>
           <p><strong>Mensagem:</strong> ${ticket.mensagem}</p>
           <div class="resposta">
             <strong>Resposta:</strong><br>
-            <textarea rows="3" oninput="responder(${index}, this.value)">${ticket.resposta || ''}</textarea>
+            <textarea rows="4" oninput="responder(${index}, this.value)">${ticket.resposta || ''}</textarea>
+          </div>
+          <div class="ticket-footer">
+            <span class="status ${ticket.resposta ? 'respondido' : ''}">
+              ${ticket.resposta ? 'Respondido' : 'Aberto'}
+            </span>
+            <button class="resolve-btn" onclick="removerTicket(${index})" title="Marcar como Resolvido e remover">✔️ Resolvido</button>
           </div>
         `;
         container.appendChild(div);
@@ -110,8 +256,18 @@
 
     function responder(index, texto) {
       const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
-      tickets[index].resposta = texto;
+      tickets[index].resposta = texto.trim();
       localStorage.setItem('tickets', JSON.stringify(tickets));
+      carregarTickets(); // Atualiza visual para mudar status
+    }
+
+    function removerTicket(index) {
+      if (!confirm('Tem certeza que deseja marcar esse ticket como resolvido e removê-lo?')) return;
+
+      const tickets = JSON.parse(localStorage.getItem('tickets') || '[]');
+      tickets.splice(index, 1);
+      localStorage.setItem('tickets', JSON.stringify(tickets));
+      carregarTickets();
     }
   </script>
 </body>
