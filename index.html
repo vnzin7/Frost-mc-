@@ -3,236 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FrostMC - Servidor Minecraft Java</title>
+  <title>FrostMC - Início</title>
   <link rel="icon" href="logo.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-
-    * {
-      box-sizing: border-box;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0b1229, #1c2a58);
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
       color: #e0e7ff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
     header {
-      background: #142854;
+      background: #111827;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 40px;
-      box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
     }
-    header img.logo {
+    .logo {
       height: 48px;
-      cursor: pointer;
-      transition: filter 0.3s ease;
-    }
-    header img.logo:hover {
-      filter: brightness(1.2);
     }
     nav a {
       color: #cbd5e1;
       text-decoration: none;
-      margin-left: 30px;
+      margin-left: 1.5rem;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
     nav a:hover {
       color: #60a5fa;
     }
-    main {
-      flex: 1;
-      max-width: 1100px;
-      margin: 50px auto 80px;
-      padding: 0 20px;
-    }
     .hero {
       text-align: center;
-      margin-bottom: 50px;
+      padding: 60px 20px 30px;
     }
     .hero h1 {
-      font-size: 3.5rem;
-      letter-spacing: 4px;
-      margin-bottom: 15px;
+      font-size: 3rem;
       color: #60a5fa;
-      text-shadow: 0 0 25px #93c5fd;
+      text-shadow: 0 0 10px #3b82f6;
     }
     .hero p {
-      font-size: 1.3rem;
-      max-width: 650px;
-      margin: 0 auto;
-      color: #cbd5e1;
-    }
-    .online-members {
-      background: #1e3a8a;
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 40px;
       font-size: 1.2rem;
-      font-weight: 600;
-      box-shadow: 0 6px 25px rgba(96, 165, 250, 0.7);
-      margin: 0 auto 70px auto;
-      color: #e0e7ff;
-      user-select: none;
+      max-width: 700px;
+      margin: 20px auto;
     }
-    .updates {
+    .btn {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 12px 24px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+    .section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .cards {
       display: flex;
       justify-content: center;
-      gap: 25px;
       flex-wrap: wrap;
+      gap: 20px;
     }
-    .update-card {
-      background: #16316b;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
-      width: 280px;
-      padding: 25px 20px;
-      color: #cbd5e1;
-      cursor: default;
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      width: 300px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     }
-    .update-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 14px 40px rgba(96, 165, 250, 0.9);
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(59,130,246,0.6);
     }
-    .update-card h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: #93c5fd;
-      font-size: 1.5rem;
-      letter-spacing: 1.1px;
-      text-align: center;
-    }
-    .update-card ul {
-      margin: 0;
-      padding-left: 20px;
-      font-size: 1rem;
-      line-height: 1.5;
-      list-style: none;
-    }
-    .update-card ul li::before {
-      content: '🔹';
-      margin-right: 8px;
+    .card h3 {
       color: #60a5fa;
-      position: relative;
-      top: 1px;
     }
-    .ticket-button {
-      margin-top: 70px;
+    footer {
       text-align: center;
-    }
-    .ticket-button button {
-      background-color: #5865F2;
-      border: none;
-      padding: 18px 48px;
-      font-size: 1.3rem;
-      color: white;
-      border-radius: 16px;
-      cursor: pointer;
-      box-shadow: 0 6px 25px rgba(88, 101, 242, 0.8);
-      transition: background-color 0.3s ease, transform 0.25s ease;
-    }
-    .ticket-button button:hover {
-      background-color: #4752c4;
-      transform: scale(1.05);
-    }
-
-    /* Responsivo */
-    @media (max-width: 960px) {
-      .updates {
-        justify-content: center;
-      }
-    }
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-      nav a {
-        margin-left: 15px;
-        font-size: 1rem;
-      }
-      main {
-        margin: 30px 15px 50px;
-      }
-      .hero h1 {
-        font-size: 2.6rem;
-      }
-      .update-card {
-        width: 100%;
-        max-width: 350px;
-      }
+      padding: 20px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.png" alt="Logo FrostMC" class="logo" />
-    <nav>
-      <a href="index.html">Início</a>
-      <a href="vip.html">Comprar VIP</a>
-      <a href="regras.html">Regras</a>
-      <a href="feedback.html">Feedback</a>
-      <a href="atendimento.html">Atendimento</a>
-    </nav>
-  </header>
+<header>
+  <img src="logo.png" alt="Logo FrostMC" class="logo" />
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="vip.html">VIPs</a>
+    <a href="regras.html">Regras</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="atendimento.html">Atendimento</a>
+  </nav>
+</header>
 
-  <main>
-    <section class="hero">
-      <h1>FROST MC</h1>
-      <p>Bem-vindo ao FrostMC, servidor Minecraft Java que une aventura, diversão e comunidade para você se destacar!</p>
-    </section>
+<section class="hero">
+  <h1>Bem-vindo ao FrostMC</h1>
+  <p>Servidor de Minecraft Java com economia, pvp, sistemas únicos e uma comunidade ativa! Junte-se agora e aproveite o melhor da experiência Frost.</p>
+  <a class="btn" href="https://discord.gg/SEULINK" target="_blank">Entrar no Discord</a>
+</section>
 
-    <div class="online-members">
-      👥 Membros online no Discord: <strong>127</strong>
+<section class="section">
+  <h2>Membros Online no Discord</h2>
+  <p id="member-count" style="font-size: 2rem; color: #3b82f6;">Carregando...</p>
+</section>
+
+<script>
+  async function updateDiscordMemberCount() {
+    const serverId = "SEU_ID_DO_SERVIDOR";
+    try {
+      const response = await fetch(`https://discord.com/api/guilds/${serverId}/widget.json`);
+      const data = await response.json();
+      document.getElementById("member-count").textContent = data.presence_count + " online";
+    } catch {
+      document.getElementById("member-count").textContent = "Indisponível";
+    }
+  }
+  updateDiscordMemberCount();
+  setInterval(updateDiscordMemberCount, 15000);
+</script>
+
+<section class="section">
+  <h2>Atualizações Recentes</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>🧊 Novo Sistema de VIPs</h3>
+      <p>Agora com página dedicada e carrinho. Visual moderno e organizado para você comprar seu VIP!</p>
     </div>
-
-    <section class="updates">
-      <div class="update-card">
-        <h3>Economia Nova</h3>
-        <ul>
-          <li>Loja e trocas aprimoradas</li>
-          <li>Eventos semanais com prêmios</li>
-          <li>Recompensas diárias ao logar</li>
-        </ul>
-      </div>
-      <div class="update-card">
-        <h3>Arena PvP</h3>
-        <ul>
-          <li>Novos mapas competitivos</li>
-          <li>Rankings e torneios</li>
-          <li>Correção de bugs e melhorias</li>
-        </ul>
-      </div>
-      <div class="update-card">
-        <h3>VIP Exclusivo</h3>
-        <ul>
-          <li>Acesso à área VIP</li>
-          <li>Itens e cosméticos únicos</li>
-          <li>Eventos exclusivos para VIPs</li>
-        </ul>
-      </div>
-    </section>
-
-    <div class="ticket-button">
-      <button 
-        onclick="window.open('https://discord.com/channels/SEU_SERVIDOR_ID/SEU_CANAL_DE_TICKET_ID', '_blank')"
-        aria-label="Abrir Ticket no Discord"
-      >
-        Abrir Ticket no Discord
-      </button>
+    <div class="card">
+      <h3>🛡️ Regras Atualizadas</h3>
+      <p>Separamos regras da comunidade do Discord e do Minecraft. Fique atento e evite punições!</p>
     </div>
-  </main>
+    <div class="card">
+      <h3>🎉 Eventos Semanais</h3>
+      <p>Participe de eventos no Discord e no Minecraft toda semana. Prêmios exclusivos para VIPs!</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 FrostMC. Todos os direitos reservados.
+</footer>
 
 </body>
 </html>
