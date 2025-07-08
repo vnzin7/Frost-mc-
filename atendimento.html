@@ -1,137 +1,101 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atendimento • FrostMC</title>
-  <link rel="icon" href="logo.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimento - FrostMC</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0b1229, #1c2a58);
+      background-color: #0f172a;
       color: #e0e7ff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
     header {
-      background: #142854;
+      background-color: #111827;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 15px 40px;
-      box-shadow: 0 2px 10px rgba(33, 66, 161, 0.7);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    header img.logo {
-      height: 48px;
-      cursor: pointer;
-      transition: filter 0.3s ease;
-    }
-    header img.logo:hover {
-      filter: brightness(1.2);
+      align-items: center;
+      padding: 1rem 2rem;
     }
     nav a {
       color: #cbd5e1;
+      margin-left: 1.5rem;
       text-decoration: none;
-      margin-left: 30px;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
     }
     nav a:hover {
       color: #60a5fa;
     }
-    main {
-      flex: 1;
-      max-width: 600px;
-      margin: 60px auto 80px;
-      padding: 0 20px;
-      text-align: center;
+    .logo {
+      height: 48px;
     }
     .container {
-      background: #142854;
-      padding: 40px 30px;
-      border-radius: 24px;
-      box-shadow: 0 8px 30px rgba(33, 66, 161, 0.8);
-      width: 100%;
+      max-width: 800px;
+      margin: 60px auto;
+      text-align: center;
+      padding: 0 20px;
     }
     h1 {
-      margin-bottom: 25px;
-      font-size: 2.8rem;
       color: #60a5fa;
-      text-shadow: 0 0 20px #93c5fd;
     }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 40px;
-      color: #cbd5e1;
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      margin-top: 30px;
     }
-    button {
-      background-color: #5865F2;
-      border: none;
-      padding: 20px 45px;
-      font-size: 1.4rem;
-      color: white;
-      border-radius: 16px;
-      cursor: pointer;
-      box-shadow: 0 6px 25px rgba(88, 101, 242, 0.8);
-      transition: background-color 0.3s ease, transform 0.25s ease;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto;
-      display: block;
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
-    button:hover {
-      background-color: #4752c4;
-      transform: scale(1.05);
+    .btn {
+      display: inline-block;
+      background-color: #3b82f6;
+      color: #fff;
+      padding: 12px 24px;
+      margin-top: 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
     }
-
-    /* Responsivo */
-    @media (max-width: 650px) {
-      header {
-        flex-direction: column;
-        gap: 15px;
-      }
-      nav a {
-        margin-left: 15px;
-        font-size: 1rem;
-      }
-      main {
-        margin: 40px 15px 50px;
-      }
+    .btn:hover {
+      background-color: #2563eb;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-top: 60px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="logo.png" alt="Logo FrostMC" class="logo" />
+    <img src="logo.png" alt="FrostMC Logo" class="logo">
     <nav>
       <a href="index.html">Início</a>
-      <a href="vip.html">Comprar VIP</a>
+      <a href="vip.html">VIPs</a>
       <a href="regras.html">Regras</a>
       <a href="feedback.html">Feedback</a>
       <a href="atendimento.html">Atendimento</a>
     </nav>
   </header>
 
-  <main>
-    <div class="container">
-      <h1>Atendimento FrostMC</h1>
-      <p>Clique no botão abaixo para abrir um ticket e falar com a nossa equipe no Discord.</p>
-      <button onclick="window.open('https://discord.com/channels/SEU_SERVIDOR_ID/SEU_CANAL_DE_ATENDIMENTO_ID', '_blank')">
-        Abrir Ticket no Discord
-      </button>
+  <div class="container">
+    <h1>Central de Atendimento FrostMC</h1>
+    <div class="card">
+      <p>Se você precisa de ajuda com o servidor, quer reportar bugs ou deseja falar diretamente com nossa equipe, utilize nosso sistema de atendimento!</p>
+      <p>Clique no botão abaixo para abrir um ticket no nosso canal de suporte do Discord. Nossa equipe irá responder o mais breve possível.</p>
+      <a class="btn" href="https://discord.gg/SEULINK" target="_blank">Abrir Atendimento no Discord</a>
     </div>
-  </main>
+  </div>
 
+  <footer>
+    &copy; 2025 FrostMC. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
