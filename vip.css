@@ -1,79 +1,43 @@
-/* Reset */
-* {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: white;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: 'Outfit', sans-serif;
-  background-color: #0e0e0e;
-  color: white;
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #1c1c1c;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+#pesquisa {
+  padding: 8px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+main {
   padding: 20px;
 }
 
-/* Topbar com tags e busca */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
+.vips-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-.tags {
-  display: flex;
-  gap: 10px;
-}
-
-.tag {
-  padding: 8px 18px;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.tag:hover {
-  background-color: #292929;
-}
-
-.tag.active {
-  background: linear-gradient(135deg, #ff2f2f, #ff5757);
-  color: white;
-  border: none;
-}
-
-/* Campo de busca */
-.search {
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: none;
-  background-color: #1e1e1e;
-  color: white;
-  font-size: 16px;
-  outline: none;
-  width: 250px;
-  margin-top: 10px;
-}
-
-/* Container dos cards */
-.vip-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-}
-
-/* Card de VIP */
 .vip-card {
-  background: #161616;
-  border: 1px solid #2e2e2e;
-  border-radius: 16px;
-  width: 250px;
+  background-color: #222;
+  border-radius: 15px;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
@@ -81,54 +45,77 @@ body {
 }
 
 .vip-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
 }
 
-.vip-image {
-  width: 100px;
-  margin-bottom: 15px;
-}
-
-.vip-card h3 {
-  font-size: 20px;
+.vip-card h2 {
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  letter-spacing: 1px;
-  color: #ffffff;
 }
 
-.price {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: #ffffff;
-}
-
-/* Botão de compra */
-.buy-btn {
-  padding: 10px;
-  width: 100%;
-  background: linear-gradient(135deg, #ff2f2f, #ff5757);
-  color: white;
+.vip-card .preco {
+  color: #0ff;
   font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.vip-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.vip-card ul li {
+  margin: 5px 0;
+}
+
+.vip-card button {
+  padding: 10px 20px;
+  background-color: #ff3366;
+  color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-.buy-btn:hover {
-  filter: brightness(1.1);
+.vip-card button:hover {
+  background-color: #ff5577;
 }
 
-/* Cores específicas para cada VIP (opcional) */
-.ruby .buy-btn {
-  background: linear-gradient(135deg, #ff2f2f, #ff5757);
+.carrinho {
+  background-color: #1c1c1c;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.esmeralda .buy-btn {
-  background: linear-gradient(135deg, #00ffb3, #00ff73);
+.carrinho h2 {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-.diamante .buy-btn {
-  background: linear-gradient(135deg, #5fd7ff, #46a3ff);
+.carrinho ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.carrinho a {
+  display: block;
+  text-align: center;
+  padding: 12px 25px;
+  background-color: #00cc88;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.carrinho a:hover {
+  background-color: #00e6a0;
 }
