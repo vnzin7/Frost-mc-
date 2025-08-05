@@ -2,111 +2,110 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VIP - Frost</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIP - Mitski Studios</title>
   <link rel="stylesheet" href="vip.css" />
-  <link rel="icon" href="../assets/logo.png" type="image/png">
 </head>
 <body>
   <header>
-    <img src="../assets/logo.png" alt="Logo" class="logo" />
-    <nav>
-      <input type="text" placeholder="Pesquisar VIP..." id="searchInput">
-    </nav>
+    <h1>VIPs Mitski Studios</h1>
+    <input type="text" id="pesquisa" placeholder="Pesquisar VIP..." onkeyup="pesquisarVIP()">
   </header>
 
   <main>
-    <section class="vip-section">
-      <div class="vip-card" data-name="apoiador">
-        <h2>💖 Apoiador</h2>
-        <p class="price">R$ 2,50/mês</p>
+    <section class="vips-container" id="vipCards">
+      <!-- VIP: Apoiador -->
+      <div class="vip-card">
+        <h2>❤️ Apoiador</h2>
+        <p class="preco">R$ 2,50/mês</p>
         <ul>
-          <li>🔹 Tag especial de apoio</li>
-          <li>🔹 Acesso à categoria VIP</li>
-          <li>🔹 Envio de sugestões à staff</li>
-          <li>🔹 Canal prioritário para denúncias</li>
-          <li>🔹 Cargo exclusivo superior ao Doador</li>
+          <li>🔹 Mostre seu apoio à comunidade com essa tag especial</li>
+          <li>🔹 Acesso à categoria VIP (canais de texto e voz exclusivos)</li>
+          <li>🔹 Envie sugestões diretamente para a staff</li>
+          <li>🔹 Canal prioritário para denúncia de bugs e jogadores</li>
+          <li>🔹 Cargo exclusivo no Discord, superior ao Doador</li>
         </ul>
-        <button class="add-to-cart" data-product="Apoiador">Adicionar ao Carrinho</button>
+        <button onclick="adicionarAoCarrinho('Apoiador')">Adicionar ao Carrinho</button>
       </div>
 
-      <div class="vip-card" data-name="doador">
-        <h2>❤️ Doador</h2>
-        <p class="price">A partir de R$ 1,50</p>
+      <!-- VIP: Doador -->
+      <div class="vip-card">
+        <h2>🧡 Doador</h2>
+        <p class="preco">Acima de R$ 1,50</p>
         <ul>
-          <li>🔹 Tag Doador de agradecimento</li>
-          <li>🔹 Acesso à categoria VIP</li>
-          <li>🔹 Chat e call exclusivos</li>
-          <li>🔹 Contato direto com a staff</li>
+          <li>🔹 Receba a TAG Doador como forma de agradecimento</li>
+          <li>🔹 Acesso à categoria VIP com chat e call exclusiva</li>
+          <li>🔹 Contato direto com a staff para sugestões e denúncias</li>
+          <li>🔹 Cargo especial no Discord</li>
         </ul>
-        <button class="add-to-cart" data-product="Doador">Adicionar ao Carrinho</button>
+        <button onclick="adicionarAoCarrinho('Doador')">Adicionar ao Carrinho</button>
       </div>
 
-      <div class="vip-card" data-name="beta">
-        <h2>🧪 BETA</h2>
-        <p class="price">R$ 4,99 (único)</p>
+      <!-- VIP: BETA -->
+      <div class="vip-card">
+        <h2>💼 BETA</h2>
+        <p class="preco">R$ 4,99 (pagamento único)</p>
         <ul>
-          <li>🔹 Acesso ao servidor Beta e Alpha</li>
-          <li>🔹 Cosméticos exclusivos</li>
-          <li>🔹 Canal exclusivo com staff</li>
+          <li>🔹 Acesso exclusivo ao servidor em fase Beta e Alpha</li>
+          <li>🔹 Permissão para usar cosméticos exclusivos beta dentro do jogo</li>
+          <li>🔹 Canal exclusivo com a staff</li>
           <li>🔹 Sugestões com prioridade</li>
-          <li>🔹 Cargo superior ao Apoiador</li>
+          <li>🔹 Cargo superior ao Apoiador no Discord</li>
         </ul>
-        <button class="add-to-cart" data-product="BETA">Adicionar ao Carrinho</button>
+        <button onclick="adicionarAoCarrinho('BETA')">Adicionar ao Carrinho</button>
       </div>
 
-      <div class="vip-card" data-name="booster">
+      <!-- VIP: Booster -->
+      <div class="vip-card">
         <h2>🚀 Booster</h2>
-        <p class="price">1 Boost no Discord</p>
+        <p class="preco">1 Boost no Discord</p>
         <ul>
-          <li>🔹 Benefícios do Apoiador + Doador</li>
-          <li>🔹 Comandos /color e /colors</li>
-          <li>🔹 Nome colorido no Discord</li>
-          <li>🔹 Transmitir tela em qualquer call</li>
-          <li>🔹 Efeitos sonoros em chamadas</li>
-          <li>🔹 Maior visibilidade</li>
+          <li>🔹 Recebe todos os benefícios do Apoiador + Doador</li>
+          <li>🔹 Acesso aos comandos: /color e /colors</li>
+          <li>🔹 Nome colorido (cosmético no Discord)</li>
+          <li>🔹 Transmitir tela em qualquer canal de voz público</li>
+          <li>🔹 Efeitos sonoros em chamadas (com moderação)</li>
+          <li>🔹 Maior visibilidade e apoio à comunidade</li>
         </ul>
-        <button class="add-to-cart" data-product="Booster">Adicionar ao Carrinho</button>
+        <button onclick="adicionarAoCarrinho('Booster')">Adicionar ao Carrinho</button>
       </div>
     </section>
 
-    <div class="carrinho">
-      <h3>🛒 Carrinho</h3>
-      <ul id="carrinho-lista"></ul>
-      <button id="finalizar-compra">Finalizar Compra</button>
-    </div>
+    <!-- Carrinho -->
+    <section class="carrinho">
+      <h2>🛒 Carrinho</h2>
+      <ul id="itensCarrinho"></ul>
+      <a href="#" id="finalizarCompra">Finalizar Compra</a>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2025 Frost - Todos os direitos reservados.</p>
-  </footer>
-
   <script>
-    const botoes = document.querySelectorAll('.add-to-cart');
-    const listaCarrinho = document.getElementById('carrinho-lista');
-    const finalizarBtn = document.getElementById('finalizar-compra');
-    const searchInput = document.getElementById('searchInput');
+    const carrinho = [];
 
-    botoes.forEach(botao => {
-      botao.addEventListener('click', () => {
-        const produto = botao.dataset.product;
-        const item = document.createElement('li');
-        item.textContent = produto;
-        listaCarrinho.appendChild(item);
+    function adicionarAoCarrinho(vip) {
+      carrinho.push(vip);
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById('itensCarrinho');
+      lista.innerHTML = '';
+      carrinho.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        lista.appendChild(li);
       });
-    });
+    }
 
-    finalizarBtn.addEventListener('click', () => {
-      window.location.href = "https://discord.gg/86RXTMY4zD";
-    });
+    function pesquisarVIP() {
+      const input = document.getElementById("pesquisa").value.toLowerCase();
+      const cards = document.querySelectorAll(".vip-card");
 
-    searchInput.addEventListener('input', (e) => {
-      const termo = e.target.value.toLowerCase();
-      document.querySelectorAll('.vip-card').forEach(card => {
-        const nome = card.dataset.name;
-        card.style.display = nome.includes(termo) ? 'block' : 'none';
+      cards.forEach(card => {
+        const titulo = card.querySelector("h2").textContent.toLowerCase();
+        card.style.display = titulo.includes(input) ? "block" : "none";
       });
-    });
+    }
   </script>
 </body>
 </html>
