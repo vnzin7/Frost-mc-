@@ -2,135 +2,209 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FrostMC - VIP</title>
-  <link rel="icon" href="logo.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIPs | Frost</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: #fff;
+      background: #0b0b0b;
+      color: white;
     }
 
     header {
-      background: #1a1a1a;
-      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid #4fc3f7;
+      background: #111;
+      padding: 10px 20px;
     }
 
     header img {
       height: 50px;
     }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-      transition: color 0.3s;
+    nav button {
+      background: #222;
+      color: white;
+      border: none;
+      margin: 0 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
     }
 
-    nav a:hover {
-      color: #4fc3f7;
+    nav button:hover {
+      background: #333;
     }
 
     h1 {
       text-align: center;
-      margin-top: 2rem;
-      font-size: 2.5rem;
-      color: #4fc3f7;
+      margin-top: 20px;
     }
 
     .vip-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
     }
 
     .vip-card {
-      background: #1e1e1e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(79, 195, 247, 0.3);
-      transition: transform 0.3s;
-    }
-
-    .vip-card:hover {
-      transform: translateY(-5px);
+      background: #1a1a1a;
+      margin: 10px;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      border: 1px solid #333;
     }
 
     .vip-card h2 {
-      color: #4fc3f7;
+      margin-bottom: 10px;
     }
 
-    .vip-card p {
-      margin: 1rem 0;
+    .vip-card ul {
+      padding-left: 20px;
     }
 
     .vip-card button {
-      padding: 0.8rem 1.5rem;
-      background: #4fc3f7;
-      color: #000;
+      background: #6b00ff;
+      color: white;
       border: none;
-      border-radius: 6px;
+      padding: 8px 12px;
+      border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
+      margin-top: 10px;
     }
 
     .vip-card button:hover {
-      background: #03a9f4;
+      background: #5100c3;
     }
 
-    footer {
+    #cart {
       text-align: center;
-      padding: 1rem;
-      background: #1a1a1a;
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 3rem;
+      margin-top: 30px;
+    }
+
+    #finalizar {
+      margin-top: 15px;
+      background: #00d26a;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="FrostMC Logo" />
+    <img src="logo.png" alt="Logo Frost" />
     <nav>
-      <a href="inicio.html">Início</a>
-      <a href="regras.html">Regras</a>
-      <a href="feedback.html">Feedback</a>
-      <a href="vip.html">VIP</a>
+      <button onclick="location.href='inicio.html'">Início</button>
+      <button onclick="location.href='regras.html'">Regras</button>
+      <button onclick="location.href='feedback.html'">Feedback</button>
     </nav>
   </header>
 
-  <h1>Loja VIP - FrostMC</h1>
+  <h1>Escolha seu VIP</h1>
+
   <div class="vip-container">
-    <div class="vip-card">
-      <h2>VIP Bronze</h2>
-      <p>Acesso exclusivo ao servidor VIP Bronze e prefixo especial.</p>
-      <button onclick="window.location.href='https://discord.com/channels/yourserver'">Comprar no Discord</button>
+    <div class="vip-card" data-name="❤️‍🔥 Apoiador" data-price="2.50">
+      <h2>❤️‍🔥 Apoiador</h2>
+      <p>💰 R$ 2,50/mês</p>
+      <ul>
+        <li>Mostre seu apoio à comunidade com essa tag especial</li>
+        <li>Acesso à categoria VIP (texto e voz)</li>
+        <li>Envie sugestões diretamente à staff</li>
+        <li>Canal prioritário para denúncias</li>
+        <li>Cargo exclusivo no Discord</li>
+      </ul>
+      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
     </div>
-    <div class="vip-card">
-      <h2>VIP Prata</h2>
-      <p>Inclui todas as vantagens do Bronze + cosméticos e kits semanais.</p>
-      <button onclick="window.location.href='https://discord.com/channels/yourserver'">Comprar no Discord</button>
+
+    <div class="vip-card" data-name="🧠 BETA" data-price="4.99">
+      <h2>🧠 BETA</h2>
+      <p>💰 R$ 4,99 (pagamento único)</p>
+      <ul>
+        <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
+        <li>Cosméticos exclusivos beta</li>
+        <li>Canal exclusivo com a staff</li>
+        <li>Sugestões com prioridade</li>
+        <li>Cargo superior ao Apoiador</li>
+      </ul>
+      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
     </div>
-    <div class="vip-card">
-      <h2>VIP Ouro</h2>
-      <p>Prefixo lendário, acesso antecipado, e vantagens em minigames.</p>
-      <button onclick="window.location.href='https://discord.com/channels/yourserver'">Comprar no Discord</button>
+
+    <div class="vip-card" data-name="🚀 Booster" data-price="0">
+      <h2>🚀 Booster</h2>
+      <p>💜 1 Boost no Discord</p>
+      <ul>
+        <li>Todos os benefícios do Apoiador + Doador</li>
+        <li>Comandos: /color e /colors</li>
+        <li>Nome colorido</li>
+        <li>Transmitir tela em qualquer canal de voz</li>
+        <li>Efeitos sonoros nas chamadas</li>
+      </ul>
+      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
     </div>
   </div>
 
-  <footer>
-    © 2025 FrostMC - Todos os direitos reservados.
-  </footer>
+  <div id="cart">
+    <h2>Seu Carrinho:</h2>
+    <ul id="lista"></ul>
+    <button id="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+
+  <script>
+    const carrinho = [];
+
+    function adicionar(botao) {
+      const card = botao.closest('.vip-card');
+      const nome = card.dataset.name;
+      const preco = parseFloat(card.dataset.price);
+      carrinho.push({ nome, preco });
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById('lista');
+      lista.innerHTML = '';
+      carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nome} — R$ ${item.preco.toFixed(2)}`;
+        lista.appendChild(li);
+      });
+    }
+
+    async function finalizarCompra() {
+      if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      const data = new Date().toLocaleString('pt-BR');
+      const conteudo = carrinho.map(item => `**${item.nome}** — R$ ${item.preco.toFixed(2)}`).join('\n');
+
+      const payload = {
+        username: "Sistema de Vendas",
+        embeds: [{
+          title: "💸 Nova compra de VIP(s)!",
+          description: conteudo,
+          color: 65433,
+          footer: {
+            text: `Compra finalizada em ${data}`
+          }
+        }]
+      };
+
+      await fetch("https://discord.com/api/webhooks/1402847700264685659/q5sEJMIaL4fs7Qc8iISy_Gb1JQsPxfWCHKugviy6cWewsmu1VvUx0zlzvJ3jOOkD-IdW", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      alert("Compra finalizada com sucesso!");
+      carrinho.length = 0;
+      atualizarCarrinho();
+    }
+  </script>
 </body>
 </html>
