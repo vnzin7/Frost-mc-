@@ -1,123 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja VIP</title>
-    <style>
-        body {
-            background-color: #0d0d0d;
-            font-family: Arial, sans-serif;
-            color: white;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loja VIP</title>
+<style>
+    body {
+        background-color: #0d0d0d;
+        font-family: Arial, sans-serif;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    header {
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #111;
+    }
 
-        .categorias {
-            display: flex;
-            gap: 10px;
-        }
+    .categorias {
+        display: flex;
+        gap: 10px;
+    }
 
-        .categorias button {
-            background-color: #ff5500;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+    .categorias button {
+        background-color: #ff5500;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .categorias button:nth-child(2),
-        .categorias button:nth-child(3) {
-            background-color: #222;
-        }
+    .categorias button:nth-child(2),
+    .categorias button:nth-child(3) {
+        background-color: #222;
+    }
 
-        .search {
-            background-color: #111;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 6px;
-            color: white;
-        }
+    .search-menu {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 40px;
-            flex-wrap: wrap;
-        }
+    .menu-links button {
+        background-color: #222;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .card {
-            background-color: #111;
-            border-radius: 12px;
-            padding: 10px;
-            width: 220px;
-            text-align: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.6);
-        }
+    .search {
+        background-color: #111;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        color: white;
+    }
 
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-        }
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        padding: 40px;
+        flex-wrap: wrap;
+    }
 
-        .card h3 {
-            margin: 10px 0 5px;
-        }
+    .card {
+        background-color: #111;
+        border-radius: 12px;
+        padding: 10px;
+        width: 220px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
 
-        .card .preco {
-            color: #ff9900;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+    .card img {
+        width: 100%;
+        border-radius: 8px;
+    }
 
-        .btn-carrinho {
-            background-color: #ff5500;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-        }
+    .card h3 {
+        margin: 10px 0 5px;
+    }
 
-        /* Cores de borda e brilho */
-        .ruby {
-            border: 2px solid red;
-            box-shadow: 0 0 15px red;
-        }
+    .card .preco {
+        color: #ff9900;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
 
-        .esmeralda {
-            border: 2px solid limegreen;
-            box-shadow: 0 0 15px limegreen;
-        }
+    .btn-carrinho {
+        background-color: #ff5500;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+    }
 
-        .diamante {
-            border: 2px solid dodgerblue;
-            box-shadow: 0 0 15px dodgerblue;
-        }
-    </style>
+    /* Bordas e brilho */
+    .ruby { border: 2px solid red; box-shadow: 0 0 15px red; }
+    .esmeralda { border: 2px solid limegreen; box-shadow: 0 0 15px limegreen; }
+    .diamante { border: 2px solid dodgerblue; box-shadow: 0 0 15px dodgerblue; }
+
+    /* Carrinho */
+    #carrinho {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: #111;
+        padding: 15px;
+        border-radius: 12px;
+        width: 250px;
+        box-shadow: 0 0 10px black;
+    }
+
+    #carrinho h4 {
+        margin-top: 0;
+    }
+
+    #carrinho button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
 
 <header>
     <div class="categorias">
-        <button>🔥 Vips</button>
+        <button onclick="window.location.href='cash.html'">🔥 Vips</button>
         <button>Dinheiro</button>
         <button>Outros</button>
     </div>
-    <input type="text" class="search" placeholder="🔍 Buscar produto...">
+    <div class="search-menu">
+        <div class="menu-links">
+            <button onclick="alert('Página inicial')">Início</button>
+            <button onclick="alert('Regras do servidor')">Regras</button>
+            <button onclick="alert('Formulário de Feedback')">Feedback</button>
+            <button onclick="alert('Sistema de Atendimento')">Atendimento</button>
+        </div>
+        <input type="text" class="search" placeholder="🔍 Buscar produto...">
+    </div>
 </header>
 
 <div class="container">
@@ -125,23 +166,85 @@
         <img src="ruby.png" alt="Ruby">
         <h3>RUBY</h3>
         <p class="preco">R$ 25,00</p>
-        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
+        <button class="btn-carrinho" onclick="adicionarCarrinho('Ruby', 25)">🛒 Adicionar ao carrinho</button>
     </div>
 
     <div class="card esmeralda">
         <img src="esmeralda.png" alt="Esmeralda">
         <h3>ESMERALDA</h3>
         <p class="preco">R$ 50,00</p>
-        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
+        <button class="btn-carrinho" onclick="adicionarCarrinho('Esmeralda', 50)">🛒 Adicionar ao carrinho</button>
     </div>
 
     <div class="card diamante">
         <img src="diamante.png" alt="Diamante">
         <h3>DIAMANTE</h3>
         <p class="preco">R$ 75,00</p>
-        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
+        <button class="btn-carrinho" onclick="adicionarCarrinho('Diamante', 75)">🛒 Adicionar ao carrinho</button>
     </div>
 </div>
+
+<!-- Carrinho -->
+<div id="carrinho">
+    <h4>🛒 Carrinho</h4>
+    <ul id="lista-carrinho"></ul>
+    <p><strong>Total: R$ <span id="total">0</span></strong></p>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
+
+<script>
+    let carrinho = [];
+    const webhookURL = "https://discord.com/api/webhooks/1402847700264685659/q5sEJMIaL4fs7Qc8iISy_Gb1JQsPxfWCHKugviy6cWewsmu1VvUx0zlzvJ3jOOkD-IdW";
+
+    function adicionarCarrinho(produto, preco) {
+        carrinho.push({ produto, preco });
+        atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+        let lista = document.getElementById("lista-carrinho");
+        let total = 0;
+        lista.innerHTML = "";
+        carrinho.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = `${item.produto} - R$ ${item.preco}`;
+            lista.appendChild(li);
+            total += item.preco;
+        });
+        document.getElementById("total").textContent = total;
+    }
+
+    function finalizarCompra() {
+        if (carrinho.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
+
+        let total = carrinho.reduce((sum, item) => sum + item.preco, 0);
+        let detalhes = carrinho.map(item => `${item.produto} - R$ ${item.preco}`).join("\n");
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                content: "**🛒 Nova compra realizada!**",
+                embeds: [{
+                    title: "Detalhes da Compra",
+                    color: 0x00ff00,
+                    fields: [
+                        { name: "Produtos", value: detalhes },
+                        { name: "Total", value: `R$ ${total}` },
+                        { name: "Data/Hora", value: new Date().toLocaleString() }
+                    ]
+                }]
+            })
+        });
+
+        alert("Compra finalizada com sucesso!");
+        carrinho = [];
+        atualizarCarrinho();
+    }
+</script>
 
 </body>
 </html>
