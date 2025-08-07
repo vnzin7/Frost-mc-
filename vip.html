@@ -1,111 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frost MC - VIP</title>
-  <link rel="stylesheet" href="vip.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Planos VIP | Mitski Studios</title>
+  <link rel="stylesheet" href="vip.css" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>VIP Frost MC</h1>
-    <input type="text" id="searchInput" placeholder="Pesquisar VIP...">
+    <h1>Mitski Studios - Planos VIP</h1>
   </header>
 
-  <main>
-    <div class="vip-container">
-      <div class="vip-card" data-name="Apoiador">
-        <h2>💜 Apoiador</h2>
-        <p class="price">R$ 2,50/mês</p>
-        <ul>
-          <li>Mostre seu apoio à comunidade</li>
-          <li>Acesso à categoria VIP</li>
-          <li>Envie sugestões diretamente para a staff</li>
-          <li>Canal prioritário para denúncia</li>
-          <li>Cargo exclusivo no Discord</li>
-        </ul>
-        <button onclick="adicionarCarrinho('Apoiador', 2.50)">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="vip-card" data-name="Doador">
-        <h2>💚 Doador</h2>
-        <p class="price">R$ 1,50+</p>
-        <ul>
-          <li>TAG Doador como agradecimento</li>
-          <li>Acesso à categoria VIP</li>
-          <li>Contato direto com a staff</li>
-          <li>Cargo especial no Discord</li>
-        </ul>
-        <button onclick="adicionarCarrinho('Doador', 1.50)">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="vip-card" data-name="Beta">
-        <h2>💰 BETA</h2>
-        <p class="price">R$ 4,99 (pagamento único)</p>
-        <ul>
-          <li>Acesso exclusivo ao Beta/Alpha</li>
-          <li>Cosméticos exclusivos</li>
-          <li>Canal com a staff</li>
-          <li>Sugestões com prioridade</li>
-          <li>Cargo superior no Discord</li>
-        </ul>
-        <button onclick="adicionarCarrinho('BETA', 4.99)">Adicionar ao Carrinho</button>
-      </div>
-
-      <div class="vip-card" data-name="Booster">
-        <h2>🔊 Booster</h2>
-        <p class="price">1 Boost no Discord</p>
-        <ul>
-          <li>Todos os benefícios do Apoiador + Doador</li>
-          <li>Comandos /color e /colors</li>
-          <li>Nome colorido no Discord</li>
-          <li>Transmitir tela em qualquer call</li>
-          <li>Usar efeitos sonoros (moderação)</li>
-        </ul>
-        <button onclick="adicionarCarrinho('Booster', 0.00)">Adicionar ao Carrinho</button>
-      </div>
+  <main class="vip-container">
+    <div class="vip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583399.png" alt="VIP Bronze" class="vip-icon" />
+      <h2>VIP Bronze</h2>
+      <p>Acesso a kits básicos e prefixo diferenciado.</p>
+      <span class="price">R$10,00</span>
+      <button>Adicionar ao Carrinho</button>
     </div>
 
-    <section class="carrinho">
-      <h2>Carrinho</h2>
-      <ul id="lista-carrinho"></ul>
-      <p>Total: R$ <span id="total">0.00</span></p>
-      <a href="https://discord.gg/86RXTMY4zD" class="finalizar-btn" target="_blank">Finalizar Compra no Discord</a>
-    </section>
+    <div class="vip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583401.png" alt="VIP Prata" class="vip-icon" />
+      <h2>VIP Prata</h2>
+      <p>Inclui o VIP Bronze + comandos exclusivos e área privada.</p>
+      <span class="price">R$20,00</span>
+      <button>Adicionar ao Carrinho</button>
+    </div>
+
+    <div class="vip-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583406.png" alt="VIP Ouro" class="vip-icon" />
+      <h2>VIP Ouro</h2>
+      <p>Todos os benefícios anteriores + prioridade em eventos.</p>
+      <span class="price">R$35,00</span>
+      <button>Adicionar ao Carrinho</button>
+    </div>
   </main>
-
-  <script>
-    const carrinho = [];
-
-    function adicionarCarrinho(nome, preco) {
-      carrinho.push({ nome, preco });
-      atualizarCarrinho();
-    }
-
-    function atualizarCarrinho() {
-      const lista = document.getElementById("lista-carrinho");
-      const totalEl = document.getElementById("total");
-      lista.innerHTML = "";
-      let total = 0;
-
-      carrinho.forEach(item => {
-        total += item.preco;
-        const li = document.createElement("li");
-        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-        lista.appendChild(li);
-      });
-
-      totalEl.textContent = total.toFixed(2);
-    }
-
-    document.getElementById("searchInput").addEventListener("input", function() {
-      const termo = this.value.toLowerCase();
-      document.querySelectorAll(".vip-card").forEach(card => {
-        const nome = card.getAttribute("data-name").toLowerCase();
-        card.style.display = nome.includes(termo) ? "block" : "none";
-      });
-    });
-  </script>
 </body>
 </html>
