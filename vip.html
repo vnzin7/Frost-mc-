@@ -1,41 +1,144 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Planos VIP | Mitski Studios</title>
-  <link rel="stylesheet" href="vip.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIPs - Frost MC</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: #0f0f0f;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #1a1a1a;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #66ccff;
+    }
+    .search {
+      background: #222;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: white;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .vip-card {
+      background: #141414;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+    }
+    .vip-card:hover {
+      transform: scale(1.05);
+    }
+    .vip-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+    }
+    .price {
+      font-weight: bold;
+      color: #ffa500;
+    }
+    .benefits {
+      text-align: left;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+    .buy-btn {
+      background: #ff6600;
+      border: none;
+      padding: 0.7rem;
+      color: white;
+      font-weight: bold;
+      width: 100%;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .ruby { box-shadow: 0 0 10px 2px red; }
+    .esmeralda { box-shadow: 0 0 10px 2px green; }
+    .diamante { box-shadow: 0 0 10px 2px blue; }
+    .apoiador { box-shadow: 0 0 10px 2px #f54291; }
+    .doador { box-shadow: 0 0 10px 2px #f57c00; }
+    .beta { box-shadow: 0 0 10px 2px #f5d300; }
+    .booster { box-shadow: 0 0 10px 2px #8e44ad; }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Mitski Studios - Planos VIP</h1>
+    <div class="logo">Frost MC - VIPs</div>
+    <input type="search" class="search" placeholder="🔍 Buscar produto...">
   </header>
 
-  <main class="vip-container">
-    <div class="vip-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583399.png" alt="VIP Bronze" class="vip-icon" />
-      <h2>VIP Bronze</h2>
-      <p>Acesso a kits básicos e prefixo diferenciado.</p>
-      <span class="price">R$10,00</span>
-      <button>Adicionar ao Carrinho</button>
+  <main>
+    <div class="vip-card apoiador">
+      <h3>💖 Apoiador</h3>
+      <p class="price">R$ 2,50/mês</p>
+      <div class="benefits">
+        🔹 Mostre seu apoio à comunidade com essa tag especial<br>
+        🔹 Acesso à categoria VIP (canais de texto e voz exclusivos)<br>
+        🔹 Envie sugestões diretamente para a staff<br>
+        🔹 Canal prioritário para denúncia de bugs e jogadores<br>
+        🔹 Cargo exclusivo no Discord, superior ao Doador
+      </div>
+      <button class="buy-btn">🛒 Adicionar ao carrinho</button>
     </div>
 
-    <div class="vip-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583401.png" alt="VIP Prata" class="vip-icon" />
-      <h2>VIP Prata</h2>
-      <p>Inclui o VIP Bronze + comandos exclusivos e área privada.</p>
-      <span class="price">R$20,00</span>
-      <button>Adicionar ao Carrinho</button>
+    <div class="vip-card doador">
+      <h3>❤️ Doador</h3>
+      <p class="price">Qualquer valor acima de R$ 1,50</p>
+      <div class="benefits">
+        🔹 Receba a TAG Doador como forma de agradecimento<br>
+        🔹 Acesso à categoria VIP com chat e call exclusiva<br>
+        🔹 Contato direto com a staff para sugestões e denúncias<br>
+        🔹 Cargo especial no Discord
+      </div>
+      <button class="buy-btn">🛒 Adicionar ao carrinho</button>
     </div>
 
-    <div class="vip-card">
-      <img src="https://cdn-icons-png.flaticon.com/512/2583/2583406.png" alt="VIP Ouro" class="vip-icon" />
-      <h2>VIP Ouro</h2>
-      <p>Todos os benefícios anteriores + prioridade em eventos.</p>
-      <span class="price">R$35,00</span>
-      <button>Adicionar ao Carrinho</button>
+    <div class="vip-card beta">
+      <h3>🧪 BETA</h3>
+      <p class="price">R$ 4,99 (pagamento único)</p>
+      <div class="benefits">
+        🔹 Acesso exclusivo ao servidor em fase Beta e Alpha<br>
+        🔹 Permissão para usar cosméticos exclusivos beta<br>
+        🔹 Canal exclusivo com a staff<br>
+        🔹 Sugestões com prioridade<br>
+        🔹 Cargo superior ao Apoiador no Discord
+      </div>
+      <button class="buy-btn">🛒 Adicionar ao carrinho</button>
+    </div>
+
+    <div class="vip-card booster">
+      <h3>🚀 Booster</h3>
+      <p class="price">Apenas 1 Boost no Discord</p>
+      <div class="benefits">
+        🔹 Recebe todos os benefícios do Apoiador + Doador<br>
+        🔹 Acesso aos comandos: /color e /colors<br>
+        🔹 Nome colorido (cosmético no Discord)<br>
+        🔹 Permissão para transmitir tela em qualquer canal<br>
+        🔹 Permissão para usar efeitos sonoros em chamadas<br>
+        🔹 Maior visibilidade e apoio direto ao servidor
+      </div>
+      <button class="buy-btn">🛒 Adicionar ao carrinho</button>
     </div>
   </main>
 </body>
