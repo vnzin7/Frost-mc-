@@ -1,210 +1,147 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VIPs | Frost</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #0b0b0b;
-      color: white;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja VIP</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #111;
-      padding: 10px 20px;
-    }
+        header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    header img {
-      height: 50px;
-    }
+        .categorias {
+            display: flex;
+            gap: 10px;
+        }
 
-    nav button {
-      background: #222;
-      color: white;
-      border: none;
-      margin: 0 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
+        .categorias button {
+            background-color: #ff5500;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-    nav button:hover {
-      background: #333;
-    }
+        .categorias button:nth-child(2),
+        .categorias button:nth-child(3) {
+            background-color: #222;
+        }
 
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-    }
+        .search {
+            background-color: #111;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: white;
+        }
 
-    .vip-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-    }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
 
-    .vip-card {
-      background: #1a1a1a;
-      margin: 10px;
-      padding: 20px;
-      width: 250px;
-      border-radius: 10px;
-      border: 1px solid #333;
-    }
+        .card {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 10px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
 
-    .vip-card h2 {
-      margin-bottom: 10px;
-    }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+        }
 
-    .vip-card ul {
-      padding-left: 20px;
-    }
+        .card h3 {
+            margin: 10px 0 5px;
+        }
 
-    .vip-card button {
-      background: #6b00ff;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+        .card .preco {
+            color: #ff9900;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-    .vip-card button:hover {
-      background: #5100c3;
-    }
+        .btn-carrinho {
+            background-color: #ff5500;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
 
-    #cart {
-      text-align: center;
-      margin-top: 30px;
-    }
+        /* Cores de borda e brilho */
+        .ruby {
+            border: 2px solid red;
+            box-shadow: 0 0 15px red;
+        }
 
-    #finalizar {
-      margin-top: 15px;
-      background: #00d26a;
-    }
-  </style>
+        .esmeralda {
+            border: 2px solid limegreen;
+            box-shadow: 0 0 15px limegreen;
+        }
+
+        .diamante {
+            border: 2px solid dodgerblue;
+            box-shadow: 0 0 15px dodgerblue;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo Frost" />
-    <nav>
-      <button onclick="location.href='inicio.html'">Início</button>
-      <button onclick="location.href='regras.html'">Regras</button>
-      <button onclick="location.href='feedback.html'">Feedback</button>
-    </nav>
-  </header>
 
-  <h1>Escolha seu VIP</h1>
+<header>
+    <div class="categorias">
+        <button>🔥 Vips</button>
+        <button>Dinheiro</button>
+        <button>Outros</button>
+    </div>
+    <input type="text" class="search" placeholder="🔍 Buscar produto...">
+</header>
 
-  <div class="vip-container">
-    <div class="vip-card" data-name="❤️‍🔥 Apoiador" data-price="2.50">
-      <h2>❤️‍🔥 Apoiador</h2>
-      <p>💰 R$ 2,50/mês</p>
-      <ul>
-        <li>Mostre seu apoio à comunidade com essa tag especial</li>
-        <li>Acesso à categoria VIP (texto e voz)</li>
-        <li>Envie sugestões diretamente à staff</li>
-        <li>Canal prioritário para denúncias</li>
-        <li>Cargo exclusivo no Discord</li>
-      </ul>
-      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
+<div class="container">
+    <div class="card ruby">
+        <img src="ruby.png" alt="Ruby">
+        <h3>RUBY</h3>
+        <p class="preco">R$ 25,00</p>
+        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
     </div>
 
-    <div class="vip-card" data-name="🧠 BETA" data-price="4.99">
-      <h2>🧠 BETA</h2>
-      <p>💰 R$ 4,99 (pagamento único)</p>
-      <ul>
-        <li>Acesso exclusivo ao servidor em fase Beta e Alpha</li>
-        <li>Cosméticos exclusivos beta</li>
-        <li>Canal exclusivo com a staff</li>
-        <li>Sugestões com prioridade</li>
-        <li>Cargo superior ao Apoiador</li>
-      </ul>
-      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
+    <div class="card esmeralda">
+        <img src="esmeralda.png" alt="Esmeralda">
+        <h3>ESMERALDA</h3>
+        <p class="preco">R$ 50,00</p>
+        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
     </div>
 
-    <div class="vip-card" data-name="🚀 Booster" data-price="0">
-      <h2>🚀 Booster</h2>
-      <p>💜 1 Boost no Discord</p>
-      <ul>
-        <li>Todos os benefícios do Apoiador + Doador</li>
-        <li>Comandos: /color e /colors</li>
-        <li>Nome colorido</li>
-        <li>Transmitir tela em qualquer canal de voz</li>
-        <li>Efeitos sonoros nas chamadas</li>
-      </ul>
-      <button onclick="adicionar(this)">Adicionar ao Carrinho</button>
+    <div class="card diamante">
+        <img src="diamante.png" alt="Diamante">
+        <h3>DIAMANTE</h3>
+        <p class="preco">R$ 75,00</p>
+        <button class="btn-carrinho">🛒 Adicionar ao carrinho</button>
     </div>
-  </div>
+</div>
 
-  <div id="cart">
-    <h2>Seu Carrinho:</h2>
-    <ul id="lista"></ul>
-    <button id="finalizar" onclick="finalizarCompra()">Finalizar Compra</button>
-  </div>
-
-  <script>
-    const carrinho = [];
-
-    function adicionar(botao) {
-      const card = botao.closest('.vip-card');
-      const nome = card.dataset.name;
-      const preco = parseFloat(card.dataset.price);
-      carrinho.push({ nome, preco });
-      atualizarCarrinho();
-    }
-
-    function atualizarCarrinho() {
-      const lista = document.getElementById('lista');
-      lista.innerHTML = '';
-      carrinho.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.nome} — R$ ${item.preco.toFixed(2)}`;
-        lista.appendChild(li);
-      });
-    }
-
-    async function finalizarCompra() {
-      if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
-      }
-
-      const data = new Date().toLocaleString('pt-BR');
-      const conteudo = carrinho.map(item => `**${item.nome}** — R$ ${item.preco.toFixed(2)}`).join('\n');
-
-      const payload = {
-        username: "Sistema de Vendas",
-        embeds: [{
-          title: "💸 Nova compra de VIP(s)!",
-          description: conteudo,
-          color: 65433,
-          footer: {
-            text: `Compra finalizada em ${data}`
-          }
-        }]
-      };
-
-      await fetch("https://discord.com/api/webhooks/1402847700264685659/q5sEJMIaL4fs7Qc8iISy_Gb1JQsPxfWCHKugviy6cWewsmu1VvUx0zlzvJ3jOOkD-IdW", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      alert("Compra finalizada com sucesso!");
-      carrinho.length = 0;
-      atualizarCarrinho();
-    }
-  </script>
 </body>
 </html>
